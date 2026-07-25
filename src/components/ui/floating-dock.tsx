@@ -75,7 +75,7 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   aria-label={item.title}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 border border-border"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-hazard/30 bg-neutral-900"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
@@ -111,7 +111,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.clientX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-12 items-center gap-2 overflow-visible rounded-full border border-border bg-neutral-900/95 px-2.5 backdrop-blur-md md:flex",
+        "mx-auto hidden h-12 items-center gap-2 overflow-visible rounded-full border border-hazard/30 bg-neutral-900/95 px-2.5 shadow-[0_0_24px_rgb(var(--hazard)/0.12)] backdrop-blur-md md:flex",
         className,
       )}
     >

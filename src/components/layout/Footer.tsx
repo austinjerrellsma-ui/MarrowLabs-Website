@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer className="relative z-10 border-t border-border bg-background/80 backdrop-blur-sm">
-      <div className="h-1.5 w-full hazard-stripe opacity-80" aria-hidden />
+      <div className="h-2 w-full hazard-stripe opacity-100" aria-hidden />
 
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
@@ -45,7 +45,7 @@ export function Footer() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 6 }}
-                  className="relative z-20 mb-5 font-mono text-sm tracking-[0.18em] uppercase text-hazard drop-shadow-[0_0_12px_rgba(255,106,0,0.45)]"
+                  className="relative z-20 mb-5 font-mono text-sm tracking-[0.18em] uppercase text-hazard drop-shadow-[0_0_16px_rgb(var(--hazard-glow)/0.65)]"
                 >
                   {CREDITS.ownerLine}
                 </motion.p>
