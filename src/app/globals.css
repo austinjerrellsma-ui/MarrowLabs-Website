@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: rgb(var(--background) / <alpha-value>);
+  --color-foreground: rgb(var(--foreground) / <alpha-value>);
+  --color-surface: rgb(var(--surface) / <alpha-value>);
+  --color-surface-raised: rgb(var(--surface-raised) / <alpha-value>);
+  --color-border: rgb(var(--border) / <alpha-value>);
+  --color-muted: rgb(var(--muted) / <alpha-value>);
+  --color-muted-foreground: rgb(var(--muted-foreground) / <alpha-value>);
+  --color-ml: rgb(var(--ml-primary) / <alpha-value>);
+  --color-ml-glow: rgb(var(--ml-glow) / <alpha-value>);
+  --color-hub: rgb(var(--hub-primary) / <alpha-value>);
+  --color-hub-glow: rgb(var(--hub-glow) / <alpha-value>);
+  --color-studio: rgb(var(--studio-primary) / <alpha-value>);
+  --color-studio-glow: rgb(var(--studio-glow) / <alpha-value>);
+
+  /* shadcn semantic tokens */
+  --color-card: rgb(var(--card) / <alpha-value>);
+  --color-card-foreground: rgb(var(--card-foreground) / <alpha-value>);
+  --color-popover: rgb(var(--popover) / <alpha-value>);
+  --color-popover-foreground: rgb(var(--popover-foreground) / <alpha-value>);
+  --color-primary: rgb(var(--primary) / <alpha-value>);
+  --color-primary-foreground: rgb(var(--primary-foreground) / <alpha-value>);
+  --color-secondary: rgb(var(--secondary) / <alpha-value>);
+  --color-secondary-foreground: rgb(var(--secondary-foreground) / <alpha-value>);
+  --color-accent: rgb(var(--accent) / <alpha-value>);
+  --color-accent-foreground: rgb(var(--accent-foreground) / <alpha-value>);
+  --color-destructive: rgb(var(--destructive) / <alpha-value>);
+  --color-input: rgb(var(--input) / <alpha-value>);
+  --color-ring: rgb(var(--ring) / <alpha-value>);
+
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  :root {
+    /* Base palette */
+    --background: 9 9 11; /* #09090B zinc-950 */
+    --foreground: 250 250 250; /* zinc-50 */
+    --surface: 18 18 24; /* slightly lifted card bg */
+    --surface-raised: 24 24 32;
+
+    /* Product accent — MarrowLink mod (electric violet) */
+    --ml-primary: 139 92 246; /* violet-500 */
+    --ml-glow: 124 58 237; /* violet-600 */
+
+    /* Product accent — Hub (cyan/teal) */
+    --hub-primary: 34 211 238; /* cyan-400 */
+    --hub-glow: 6 182 212; /* cyan-500 */
+
+    /* Product accent — Studio (amber/gold) */
+    --studio-primary: 251 191 36; /* amber-400 */
+    --studio-glow: 245 158 11; /* amber-500 */
+
+    /* Semantic */
+    --border: 39 39 42; /* zinc-800 */
+    --muted: 113 113 122; /* zinc-500 */
+    --muted-foreground: 161 161 170; /* zinc-400 */
+
+    /* shadcn/ui mapping */
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+    --primary: var(--ml-primary);
+    --primary-foreground: 9 9 11;
+    --secondary: 24 24 32;
+    --secondary-foreground: 250 250 250;
+    --accent: 24 24 32;
+    --accent-foreground: 250 250 250;
+    --destructive: 239 68 68;
+    --input: 39 39 42;
+    --ring: var(--ml-primary);
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: var(--font-geist), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgb(var(--ml-primary) / 0.3);
+  }
+}
+
+/* Subtle radial noise texture overlay — applied to <body> via a pseudo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  z-index: 0;
+}
