@@ -39,11 +39,7 @@ export function Nav() {
         </Link>
 
         <div className="flex-1 flex justify-center md:justify-center">
-          <FloatingDock
-            items={DOCK_ITEMS}
-            desktopClassName="bg-surface/90 border-border shadow-lg shadow-black/20"
-            mobileClassName="ml-auto"
-          />
+          <FloatingDock items={DOCK_ITEMS} mobileClassName="ml-auto" />
         </div>
 
         {/* Spacer to balance the brand on desktop so the dock stays visually centered */}
