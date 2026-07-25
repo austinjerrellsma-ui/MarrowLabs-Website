@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FacilityBackdrop, FacilityPanel } from "@/components/ui/FacilityChrome";
+import { FacilityBackdrop } from "@/components/ui/FacilityChrome";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GradientText } from "@/components/ui/GradientText";
 import { Button } from "@/components/ui/button";
+import { BoneTerminal } from "@/components/ui/BoneTerminal";
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 
@@ -28,34 +29,10 @@ type PageHeroProps = {
 };
 
 const accentMap = {
-  ml: {
-    backdrop: "ml" as const,
-    rail: "bg-ml",
-    chip: "border-ml/40 bg-ml/10 text-ml",
-    gradient: "ml" as const,
-    bar: "bg-gradient-to-r from-ml to-ml-glow",
-  },
-  hub: {
-    backdrop: "hub" as const,
-    rail: "bg-hub",
-    chip: "border-hub/40 bg-hub/10 text-hub",
-    gradient: "hub" as const,
-    bar: "bg-gradient-to-r from-hub to-hub-glow",
-  },
-  studio: {
-    backdrop: "studio" as const,
-    rail: "bg-studio",
-    chip: "border-studio/40 bg-studio/10 text-studio",
-    gradient: "studio" as const,
-    bar: "bg-gradient-to-r from-studio to-studio-glow",
-  },
-  hazard: {
-    backdrop: "hazard" as const,
-    rail: "bg-hazard",
-    chip: "border-hazard/50 bg-hazard/10 text-hazard",
-    gradient: "white" as const,
-    bar: "bg-gradient-to-r from-hazard to-hazard-glow",
-  },
+  ml: { backdrop: "ml" as const, gradient: "ml" as const },
+  hub: { backdrop: "hub" as const, gradient: "hub" as const },
+  studio: { backdrop: "studio" as const, gradient: "studio" as const },
+  hazard: { backdrop: "hazard" as const, gradient: "white" as const },
 };
 
 export function PageHero({
@@ -169,56 +146,9 @@ export function PageHero({
           initial={{ opacity: 0, x: 16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.12, duration: 0.55 }}
+          className="mx-auto w-full max-w-md lg:max-w-none"
         >
-          <FacilityPanel className="p-5" accentClassName={a.rail}>
-            <div className="mb-4 flex items-center justify-between gap-3 border-b border-border pb-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                Module dossier
-              </span>
-              <span
-                className={cn(
-                  "border px-2 py-0.5 font-mono text-[9px] tracking-[0.16em]",
-                  a.chip,
-                )}
-              >
-                ONLINE
-              </span>
-            </div>
-            <dl className="space-y-3">
-              {[
-                ["Designation", title],
-                ["Division", "MarrowLabs"],
-                ["Platform", "BONELAB / Windows"],
-                ["Interface", "Desktop + VR"],
-              ].map(([k, v]) => (
-                <div
-                  key={k}
-                  className="grid grid-cols-[7.5rem_1fr] gap-3 border-b border-border pb-3 last:border-0 last:pb-0"
-                >
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-                    {k}
-                  </dt>
-                  <dd className="text-sm text-bone">{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {meta.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-border bg-background/60 px-2 py-1 font-mono text-[9px] tracking-[0.16em] text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="mt-5 h-1.5 overflow-hidden bg-background/80">
-              <div className={cn("h-full w-[78%]", a.bar)} />
-            </div>
-            <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
-              Integrity // 78%
-            </p>
-          </FacilityPanel>
+          <BoneTerminal title={title} meta={meta} integrity={78} />
         </motion.div>
       </div>
     </section>
