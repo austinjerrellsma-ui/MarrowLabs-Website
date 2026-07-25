@@ -53,21 +53,21 @@ export function ProductTriptych() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid gap-5 md:grid-cols-3 md:gap-6"
         >
-          {products.map((product) => {
+          {products.map((product, i) => {
             const Icon = ICONS[product.icon as keyof typeof ICONS];
             return (
               <motion.div
                 key={product.id}
                 variants={item}
-                className="min-h-[320px]"
+                className="min-h-[300px]"
               >
                 <HoverTrackerCard
                   href={product.href}
                   name={product.name}
                   tagline={product.tagline}
-                  description={product.description}
                   accent={product.accentVariant}
                   icon={Icon}
+                  code={`SEC-0${i + 1}`}
                 />
               </motion.div>
             );
