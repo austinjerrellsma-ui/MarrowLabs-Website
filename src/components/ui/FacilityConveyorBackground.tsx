@@ -147,6 +147,8 @@ function BeltTread({ id }: { id: string }) {
 
 function Belt({ config }: { config: BeltConfig }) {
   const dir = config.direction === "left" ? "reverse" : "normal";
+  // Bottom return path runs opposite the top belt / cargo
+  const returnDir = dir === "normal" ? "reverse" : "normal";
   // Two identical cargo sets → seamless when translating by SCROLL_PX
   const sets = [0, 1];
 
@@ -159,6 +161,7 @@ function Belt({ config }: { config: BeltConfig }) {
         ["--move-duration" as string]: config.moveDuration,
         ["--scroll-px" as string]: `${SCROLL_PX}px`,
         ["--belt-dir" as string]: dir,
+        ["--belt-dir-return" as string]: returnDir,
       }}
     >
       <div className="fcb-rail" aria-hidden />
