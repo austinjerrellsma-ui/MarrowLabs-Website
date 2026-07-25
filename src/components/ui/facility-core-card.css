@@ -22,7 +22,7 @@
   --fc-grid: rgba(167, 139, 250, 0.12);
   --fc-glow: rgba(139, 92, 246, 0.35);
   --fc-glitch-a: #c4b5fd;
-  --fc-glitch-b: #ff7a00;
+  --fc-glitch-b: #8b5cf6;
 }
 
 .fc-wrapper[data-accent="hub"] {
@@ -32,7 +32,7 @@
   --fc-grid: rgba(45, 212, 230, 0.12);
   --fc-glow: rgba(6, 182, 212, 0.35);
   --fc-glitch-a: #67e8f9;
-  --fc-glitch-b: #ff7a00;
+  --fc-glitch-b: #0891b2;
 }
 
 .fc-wrapper[data-accent="studio"] {
@@ -42,7 +42,7 @@
   --fc-grid: rgba(251, 191, 36, 0.12);
   --fc-glow: rgba(245, 158, 11, 0.35);
   --fc-glitch-a: #fde68a;
-  --fc-glitch-b: #ff7a00;
+  --fc-glitch-b: #f59e0b;
 }
 
 .fc-tracker {
