@@ -298,3 +298,56 @@ body::before {
   right: var(--t);
   height: var(--w);
 }
+
+/* Facility panel corner brackets */
+.facility-panel {
+  box-shadow:
+    inset 0 1px 0 rgb(var(--bone) / 0.05),
+    0 0 0 1px rgb(var(--hazard) / 0.04);
+}
+
+.facility-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.facility-corner-tl {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgb(var(--hazard) / 0.85);
+  border-left: 2px solid rgb(var(--hazard) / 0.85);
+}
+
+.facility-corner-tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid rgb(var(--hazard) / 0.85);
+  border-right: 2px solid rgb(var(--hazard) / 0.85);
+}
+
+.facility-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid rgb(var(--hazard) / 0.55);
+  border-left: 2px solid rgb(var(--hazard) / 0.55);
+}
+
+.facility-corner-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgb(var(--hazard) / 0.55);
+  border-right: 2px solid rgb(var(--hazard) / 0.55);
+}
+
+.facility-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgb(237 230 217 / 0.03) 2px,
+    rgb(237 230 217 / 0.03) 4px
+  );
+}
