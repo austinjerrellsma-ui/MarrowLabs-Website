@@ -9,7 +9,7 @@ interface EdgeGlowButtonProps
   className?: string;
 }
 
-/** From Uiverse.io by SelfMadeSystem */
+/** From Uiverse.io by SelfMadeSystem — filter applied inline so the glow actually renders */
 export function EdgeGlowButton({
   children,
   className,
@@ -17,39 +17,49 @@ export function EdgeGlowButton({
   ...props
 }: EdgeGlowButtonProps) {
   const filterId = `unopaq-${useId().replace(/:/g, "")}`;
+  const filterCss = `blur(4px) url(#${filterId})`;
+  const filterHoverCss = `blur(10px) url(#${filterId})`;
 
   return (
-    <div
-      className={cn("edge-glow-wrap", className)}
-      style={{ ["--unopaq" as string]: `url(#${filterId})` }}
-    >
+    <div className={cn("edge-glow-wrap", className)}>
       <svg
         aria-hidden
-        style={{ position: "absolute", width: 0, height: 0 }}
+        xmlns="http://www.w3.org/2000/svg"
+        width="0"
+        height="0"
+        style={{ position: "absolute", overflow: "hidden" }}
       >
-        <filter
-          width="3000%"
-          x="-1000%"
-          height="3000%"
-          y="-1000%"
-          id={filterId}
-        >
-          <feColorMatrix
-            values="1 0 0 0 0 
-            0 1 0 0 0 
-            0 0 1 0 0 
-            0 0 0 3 0"
-          />
-        </filter>
+        <defs>
+          <filter
+            id={filterId}
+            x="-1000%"
+            y="-1000%"
+            width="3000%"
+            height="3000%"
+          >
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 3 0"
+            />
+          </filter>
+        </defs>
       </svg>
 
       <div className="edge-glow-backdrop" aria-hidden />
 
       <button type={type} className="edge-glow-button" {...props}>
-        <div className="a l" aria-hidden />
-        <div className="a r" aria-hidden />
-        <div className="a t" aria-hidden />
-        <div className="a b" aria-hidden />
+        {(["l", "r", "t", "b"] as const).map((side) => (
+          <div key={side} className={`a ${side}`} aria-hidden>
+            <span
+              className="a-glow"
+              style={{ filter: filterCss }}
+            />
+            <span
+              className="a-glow-hover"
+              style={{ filter: filterHoverCss }}
+            />
+          </div>
+        ))}
         <div className="text">{children}</div>
       </button>
     </div>

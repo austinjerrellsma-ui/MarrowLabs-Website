@@ -37,8 +37,8 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-10 border-t border-border pt-6 flex flex-col items-center gap-5">
-          <div className="flex flex-col items-center gap-4">
+        <div className="mt-10 border-t border-border pt-8 flex flex-col items-center gap-5 overflow-visible">
+          <div className="relative z-10 flex flex-col items-center gap-5 overflow-visible py-6">
             <EdgeGlowButton
               onClick={() => setCreditsOpen((o) => !o)}
               aria-expanded={creditsOpen}
@@ -53,7 +53,7 @@ export function Footer() {
                   initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
-                  className="font-mono text-sm tracking-wide text-hazard"
+                  className="font-mono text-sm tracking-[0.18em] uppercase text-hazard"
                 >
                   {CREDITS.ownerLine}
                 </motion.p>
