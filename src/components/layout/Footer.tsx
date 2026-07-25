@@ -38,27 +38,29 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-border pt-8 flex flex-col items-center gap-5 overflow-visible">
-          <div className="relative z-10 flex flex-col items-center gap-5 overflow-visible py-6">
-            <EdgeGlowButton
-              onClick={() => setCreditsOpen((o) => !o)}
-              aria-expanded={creditsOpen}
-              aria-label={CREDITS.buttonLabel}
-            >
-              {CREDITS.buttonLabel}
-            </EdgeGlowButton>
-
+          <div className="relative z-10 flex flex-col items-center overflow-visible py-8">
             <AnimatePresence>
               {creditsOpen && (
                 <motion.p
-                  initial={{ opacity: 0, y: -6 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  className="font-mono text-sm tracking-[0.18em] uppercase text-hazard"
+                  exit={{ opacity: 0, y: 6 }}
+                  className="relative z-20 mb-5 font-mono text-sm tracking-[0.18em] uppercase text-hazard drop-shadow-[0_0_12px_rgba(255,106,0,0.45)]"
                 >
                   {CREDITS.ownerLine}
                 </motion.p>
               )}
             </AnimatePresence>
+
+            <div className="relative z-10">
+              <EdgeGlowButton
+                onClick={() => setCreditsOpen((o) => !o)}
+                aria-expanded={creditsOpen}
+                aria-label={CREDITS.buttonLabel}
+              >
+                {CREDITS.buttonLabel}
+              </EdgeGlowButton>
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full text-[11px] text-muted font-mono uppercase tracking-wider">
