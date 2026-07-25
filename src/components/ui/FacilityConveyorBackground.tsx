@@ -79,53 +79,80 @@ function Barrel() {
 /** Humanoid android on its side, front-facing toward the viewer */
 function Robot() {
   return (
-    <svg width="58" height="30" viewBox="0 0 58 30" aria-hidden>
-      {/* Soft ground contact */}
-      <ellipse cx="29" cy="27.5" rx="24" ry="2.2" fill="#1a1208" opacity="0.35" />
+    <svg width="96" height="38" viewBox="0 0 96 38" aria-hidden>
+      <ellipse cx="48" cy="35.5" rx="40" ry="2.4" fill="#1a1208" opacity="0.32" />
 
-      {/* Legs (left) — extended, stacked for side-lying front view */}
-      <rect x="2" y="8" width="14" height="6.5" rx="1.5" fill="#2a2e34" stroke="currentColor" strokeWidth="1" />
-      <rect x="2" y="16" width="14" height="6.5" rx="1.5" fill="#323840" stroke="currentColor" strokeWidth="1" />
-      <rect x="1" y="9" width="3.5" height="4.5" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
-      <rect x="1" y="17" width="3.5" height="4.5" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
-      {/* Knee joints */}
-      <circle cx="9" cy="11.2" r="1.3" fill="#1a1e24" stroke="currentColor" strokeWidth="0.6" />
-      <circle cx="9" cy="19.2" r="1.3" fill="#1a1e24" stroke="currentColor" strokeWidth="0.6" />
+      {/* —— FAR LEG (bottom) —— */}
+      <path
+        d="M1.5 26h8.5l1.8 3.4H2z"
+        fill="#3a4048"
+        stroke="currentColor"
+        strokeWidth="0.85"
+      />
+      <rect x="9" y="24.8" width="12" height="4.8" rx="1.5" fill="#2a2e34" stroke="currentColor" strokeWidth="0.9" />
+      <circle cx="22.5" cy="27.2" r="2.25" fill="#3a4048" stroke="currentColor" strokeWidth="0.85" />
+      <rect x="23.5" y="24.6" width="14" height="5.2" rx="1.7" fill="#323840" stroke="currentColor" strokeWidth="0.95" />
 
-      {/* Pelvis / hip block */}
-      <rect x="14" y="9" width="6" height="13" rx="1.5" fill="#3a4048" stroke="currentColor" strokeWidth="1" />
+      {/* —— NEAR LEG (top) —— */}
+      <path
+        d="M1.5 9h8.5l1.8 3.4H2z"
+        fill="#3a4048"
+        stroke="currentColor"
+        strokeWidth="0.85"
+      />
+      <rect x="9" y="8" width="12" height="5" rx="1.5" fill="#2a2e34" stroke="currentColor" strokeWidth="0.9" />
+      <circle cx="22.5" cy="10.5" r="2.3" fill="#3a4048" stroke="currentColor" strokeWidth="0.85" />
+      <rect x="23.5" y="7.8" width="14" height="5.4" rx="1.7" fill="#323840" stroke="currentColor" strokeWidth="0.95" />
 
-      {/* Torso — chest toward viewer */}
-      <rect x="19" y="6.5" width="18" height="18" rx="2.5" fill="#2a2e34" stroke="currentColor" strokeWidth="1.2" />
-      <rect x="22" y="9" width="12" height="9" rx="1.5" fill="#3a444c" stroke="#cfc5b0" strokeWidth="0.7" opacity="0.9" />
-      <path d="M24 12h8M24 15h8" stroke="currentColor" strokeWidth="0.8" opacity="0.55" />
-      <circle cx="28" cy="20.5" r="1.4" fill="currentColor" opacity="0.85" />
+      {/* —— HIPS —— */}
+      <rect x="36" y="7.2" width="9" height="20.6" rx="2.2" fill="#3a4048" stroke="currentColor" strokeWidth="1.05" />
+      <path d="M40.5 10.5v14" stroke="#cfc5b0" strokeWidth="0.7" opacity="0.35" />
+      <circle cx="40.5" cy="17.5" r="1.6" fill="#1a1e24" stroke="currentColor" strokeWidth="0.55" />
 
-      {/* Near arm (top of figure, resting along torso) */}
-      <rect x="22" y="3.5" width="12" height="4" rx="1.5" fill="#323840" stroke="currentColor" strokeWidth="0.9" />
-      <rect x="33" y="3.8" width="4" height="3.4" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
-      {/* Far arm (bottom edge, peeking under torso) */}
-      <rect x="23" y="23.5" width="11" height="3.5" rx="1.2" fill="#252930" stroke="currentColor" strokeWidth="0.8" />
-      <rect x="33" y="23.7" width="3.5" height="3" rx="0.9" fill="#323840" stroke="currentColor" strokeWidth="0.6" />
+      {/* —— TORSO —— */}
+      <rect x="44" y="5.5" width="22" height="24" rx="3" fill="#2a2e34" stroke="currentColor" strokeWidth="1.15" />
+      <rect x="47.5" y="8" width="15" height="11" rx="2" fill="#3a444c" stroke="#cfc5b0" strokeWidth="0.75" opacity="0.92" />
+      <path d="M50 11h10M50 14.2h10M50 17.4h7" stroke="currentColor" strokeWidth="0.75" opacity="0.5" />
+      <rect x="49" y="20.5" width="12" height="6" rx="1.3" fill="#252930" stroke="currentColor" strokeWidth="0.7" />
+      <circle cx="55" cy="23.5" r="1.35" fill="currentColor" opacity="0.8" />
 
-      {/* Neck */}
-      <rect x="36.5" y="12" width="3.5" height="7" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+      {/* shoulders */}
+      <circle cx="64.5" cy="7" r="2.5" fill="#3a4048" stroke="currentColor" strokeWidth="0.95" />
+      <circle cx="64.5" cy="28" r="2.3" fill="#323840" stroke="currentColor" strokeWidth="0.9" />
 
-      {/* Head — facing viewer */}
-      <rect x="39" y="8" width="14" height="14" rx="3" fill="#3a4048" stroke="currentColor" strokeWidth="1.15" />
-      {/* Visor */}
-      <rect x="41.5" y="11.5" width="9" height="4.5" rx="1.2" fill="#1a1208" stroke="currentColor" strokeWidth="0.7" />
-      <circle cx="44.2" cy="13.7" r="1.35" fill="currentColor" />
-      <circle cx="48.3" cy="13.7" r="1.35" fill="currentColor" />
-      {/* Mouth plate / chin detail */}
-      <path d="M43 18.5h7" stroke="#cfc5b0" strokeWidth="0.9" opacity="0.45" />
-      {/* Antenna */}
-      <path d="M46 8V4.5" stroke="currentColor" strokeWidth="1.1" fill="none" />
-      <circle cx="46" cy="3.6" r="1.35" fill="currentColor" />
+      {/* —— NEAR ARM (top): shoulder → elbow → forearm → hand toward hips —— */}
+      <rect x="52" y="1.8" width="11" height="4.4" rx="1.6" fill="#323840" stroke="currentColor" strokeWidth="0.9" />
+      <circle cx="51" cy="4" r="2" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="40" y="2" width="10.5" height="4" rx="1.4" fill="#2a2e34" stroke="currentColor" strokeWidth="0.85" />
+      <rect x="35" y="1.6" width="5.2" height="4.8" rx="1.2" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M36.5 2.4v3.2M38.2 2.4v3.2" stroke="#cfc5b0" strokeWidth="0.55" opacity="0.45" />
 
-      {/* Shoulder bolts */}
-      <circle cx="20.5" cy="8.5" r="1.1" fill="#1a1e24" stroke="currentColor" strokeWidth="0.55" />
-      <circle cx="20.5" cy="22.5" r="1.1" fill="#1a1e24" stroke="currentColor" strokeWidth="0.55" />
+      {/* —— FAR ARM (bottom): same layout —— */}
+      <rect x="52" y="29" width="11" height="4" rx="1.5" fill="#252930" stroke="currentColor" strokeWidth="0.8" />
+      <circle cx="51" cy="31" r="1.85" fill="#323840" stroke="currentColor" strokeWidth="0.75" />
+      <rect x="40.5" y="29.2" width="10" height="3.6" rx="1.3" fill="#2a2e34" stroke="currentColor" strokeWidth="0.75" />
+      <rect x="35.5" y="28.8" width="5" height="4.4" rx="1.1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
+
+      {/* —— NECK —— */}
+      <rect x="65.5" y="13" width="5" height="9" rx="1.4" fill="#3a4048" stroke="currentColor" strokeWidth="0.85" />
+
+      {/* —— HEAD (facing viewer) —— */}
+      <rect x="70" y="8.5" width="17" height="18" rx="4.5" fill="#3a4048" stroke="currentColor" strokeWidth="1.15" />
+      <path
+        d="M73 23h11.5c0.7 0 1.3 0.9 1.3 1.8H71.7c0-0.9 0.6-1.8 1.3-1.8z"
+        fill="#2a2e34"
+        stroke="currentColor"
+        strokeWidth="0.7"
+      />
+      <rect x="73.2" y="12.2" width="11" height="5.6" rx="1.6" fill="#1a1208" stroke="currentColor" strokeWidth="0.75" />
+      <circle cx="76.4" cy="15" r="1.65" fill="currentColor" />
+      <circle cx="81.2" cy="15" r="1.65" fill="currentColor" />
+      <path d="M75.5 21h8" stroke="#cfc5b0" strokeWidth="1" opacity="0.5" />
+      <path d="M78.5 8.5V3.8" stroke="currentColor" strokeWidth="1.15" fill="none" />
+      <circle cx="78.5" cy="2.8" r="1.55" fill="currentColor" />
+
+      <circle cx="37.5" cy="10.2" r="1.2" fill="#1a1e24" stroke="currentColor" strokeWidth="0.5" />
+      <circle cx="37.5" cy="24.8" r="1.2" fill="#1a1e24" stroke="currentColor" strokeWidth="0.5" />
     </svg>
   );
 }
