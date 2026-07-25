@@ -17,6 +17,9 @@
   --color-hub-glow: rgb(var(--hub-glow) / <alpha-value>);
   --color-studio: rgb(var(--studio-primary) / <alpha-value>);
   --color-studio-glow: rgb(var(--studio-glow) / <alpha-value>);
+  --color-hazard: rgb(var(--hazard) / <alpha-value>);
+  --color-hazard-glow: rgb(var(--hazard-glow) / <alpha-value>);
+  --color-bone: rgb(var(--bone) / <alpha-value>);
 
   /* shadcn semantic tokens */
   --color-card: rgb(var(--card) / <alpha-value>);
@@ -69,44 +72,49 @@
 
 @layer base {
   :root {
-    /* Base palette */
-    --background: 9 9 11; /* #09090B zinc-950 */
-    --foreground: 250 250 250; /* zinc-50 */
-    --surface: 18 18 24; /* slightly lifted card bg */
-    --surface-raised: 24 24 32;
+    /* Void / bone base — BONELAB facility palette */
+    --background: 6 6 8; /* near-void black */
+    --foreground: 237 230 217; /* bone ivory */
+    --surface: 14 14 16;
+    --surface-raised: 22 22 24;
 
-    /* Product accent — MarrowLink mod (electric violet) */
-    --ml-primary: 139 92 246; /* violet-500 */
-    --ml-glow: 124 58 237; /* violet-600 */
+    /* Product accent — MarrowLink (energy violet) */
+    --ml-primary: 167 139 250;
+    --ml-glow: 139 92 246;
 
-    /* Product accent — Hub (cyan/teal) */
-    --hub-primary: 34 211 238; /* cyan-400 */
-    --hub-glow: 6 182 212; /* cyan-500 */
+    /* Product accent — Hub (void cyan) */
+    --hub-primary: 45 212 230;
+    --hub-glow: 6 182 212;
 
-    /* Product accent — Studio (amber/gold) */
-    --studio-primary: 251 191 36; /* amber-400 */
-    --studio-glow: 245 158 11; /* amber-500 */
+    /* Product accent — Studio (hazard amber) */
+    --studio-primary: 251 191 36;
+    --studio-glow: 245 158 11;
+
+    /* Facility hazard chrome */
+    --hazard: 232 120 32; /* industrial orange */
+    --hazard-glow: 194 89 20;
+    --bone: 237 230 217;
 
     /* Semantic */
-    --border: 39 39 42; /* zinc-800 */
-    --muted: 113 113 122; /* zinc-500 */
-    --muted-foreground: 161 161 170; /* zinc-400 */
+    --border: 42 40 36; /* warm dark edge */
+    --muted: 120 112 100;
+    --muted-foreground: 176 168 152;
 
     /* shadcn/ui mapping */
     --card: var(--surface);
     --card-foreground: var(--foreground);
     --popover: var(--surface);
     --popover-foreground: var(--foreground);
-    --primary: var(--ml-primary);
-    --primary-foreground: 9 9 11;
-    --secondary: 24 24 32;
-    --secondary-foreground: 250 250 250;
-    --accent: 24 24 32;
-    --accent-foreground: 250 250 250;
-    --destructive: 239 68 68;
-    --input: 39 39 42;
-    --ring: var(--ml-primary);
-    --radius: 0.75rem;
+    --primary: var(--hazard);
+    --primary-foreground: 6 6 8;
+    --secondary: 22 22 24;
+    --secondary-foreground: 237 230 217;
+    --accent: 22 22 24;
+    --accent-foreground: 237 230 217;
+    --destructive: 220 60 48;
+    --input: 42 40 36;
+    --ring: var(--hazard);
+    --radius: 0.5rem; /* sharper, more industrial */
   }
 }
 
@@ -123,7 +131,7 @@
   }
 
   ::selection {
-    background-color: rgb(var(--ml-primary) / 0.3);
+    background-color: rgb(var(--hazard) / 0.35);
   }
 }
 
@@ -133,8 +141,29 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.045'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
   z-index: 0;
+}
+
+/* Hazard stripe utility — BONELAB facility cue */
+.hazard-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(var(--hazard) / 0.9),
+    rgb(var(--hazard) / 0.9) 8px,
+    rgb(6 6 8 / 0.95) 8px,
+    rgb(6 6 8 / 0.95) 16px
+  );
+}
+
+.bone-panel {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--surface-raised) / 1) 0%,
+    rgb(var(--surface) / 1) 100%
+  );
+  border: 1px solid rgb(var(--border));
+  box-shadow: inset 0 1px 0 rgb(var(--bone) / 0.06);
 }

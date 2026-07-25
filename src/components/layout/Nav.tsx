@@ -30,10 +30,10 @@ export function Nav() {
           href="/"
           className="mt-2 flex items-center gap-2.5 group shrink-0"
         >
-          <div className="h-7 w-7 rounded-lg bg-ml/20 border border-ml/30 flex items-center justify-center">
-            <div className="h-3 w-3 rounded-sm bg-ml animate-glow-pulse" />
+          <div className="h-7 w-7 rounded-sm bg-hazard/15 border border-hazard/40 flex items-center justify-center">
+            <div className="h-3 w-3 rounded-[1px] bg-hazard animate-glow-pulse" />
           </div>
-          <span className="font-display font-semibold text-base tracking-tight text-foreground group-hover:text-ml transition-colors hidden sm:inline">
+          <span className="font-display font-semibold text-base tracking-tight text-bone group-hover:text-hazard transition-colors hidden sm:inline">
             MarrowLabs
           </span>
         </Link>

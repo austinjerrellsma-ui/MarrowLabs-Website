@@ -21,54 +21,58 @@ export function HeroSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
+        {/* Void core wash */}
         <div
-          className="absolute -top-1/4 left-1/2 h-[800px] w-[800px] -translate-x-1/2 rounded-full"
+          className="absolute -top-1/4 left-1/2 h-[900px] w-[900px] -translate-x-1/2 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--ml-glow) / 0.18) 0%, transparent 70%)",
-            filter: "blur(60px)",
+              "radial-gradient(circle, rgb(var(--hazard) / 0.12) 0%, transparent 65%)",
+            filter: "blur(50px)",
           }}
         />
         <div
-          className="absolute top-1/2 -left-1/4 h-[600px] w-[600px] -translate-y-1/2 rounded-full"
+          className="absolute top-1/3 -left-1/4 h-[560px] w-[560px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--hub-glow) / 0.12) 0%, transparent 70%)",
-            filter: "blur(80px)",
+              "radial-gradient(circle, rgb(var(--ml-glow) / 0.10) 0%, transparent 70%)",
+            filter: "blur(70px)",
           }}
         />
         <div
-          className="absolute bottom-0 -right-1/4 h-[500px] w-[500px] rounded-full"
+          className="absolute bottom-0 -right-1/4 h-[480px] w-[480px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--studio-glow) / 0.10) 0%, transparent 70%)",
-            filter: "blur(80px)",
+              "radial-gradient(circle, rgb(var(--hub-glow) / 0.08) 0%, transparent 70%)",
+            filter: "blur(70px)",
           }}
         />
+        {/* Facility grid */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage:
-              "linear-gradient(rgb(250 250 250 / 1) 1px, transparent 1px), linear-gradient(90deg, rgb(250 250 250 / 1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              "linear-gradient(rgb(237 230 217 / 1) 1px, transparent 1px), linear-gradient(90deg, rgb(237 230 217 / 1) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
           }}
         />
+        {/* Top hazard bar */}
+        <div className="absolute top-0 inset-x-0 h-1 hazard-stripe opacity-70" />
       </div>
 
       <div className="relative z-10 max-w-4xl">
         <motion.div {...fadeUp(0)}>
-          <SectionLabel variant="ml" className="mb-6">
-            BONELAB Modding Studio
+          <SectionLabel variant="hazard" className="mb-6">
+            BONELAB Void Facility
           </SectionLabel>
         </motion.div>
 
         <motion.h1
           {...fadeUp(0.08)}
-          className="font-display text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
+          className="font-display text-5xl font-bold leading-[1.08] tracking-tight text-bone sm:text-6xl lg:text-7xl"
         >
           Build the powers
           <br />
-          <GradientText variant="ml">BONELAB deserves.</GradientText>
+          <GradientText variant="white">BONELAB deserves.</GradientText>
         </motion.h1>
 
         <motion.p
@@ -84,7 +88,11 @@ export function HeroSection() {
           {...fadeUp(0.24)}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <Button asChild size="lg" className="gap-2 text-base">
+          <Button
+            asChild
+            size="lg"
+            className="gap-2 text-base font-mono uppercase tracking-wider rounded-sm"
+          >
             <a href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">
               <Download size={18} />
               Download the Hub
@@ -92,9 +100,9 @@ export function HeroSection() {
           </Button>
           <Button
             asChild
-            variant="ghost"
+            variant="outline"
             size="lg"
-            className="gap-1.5 text-base"
+            className="gap-1.5 text-base font-mono uppercase tracking-wider rounded-sm border-bone/20 text-bone hover:bg-bone/5 hover:text-bone"
           >
             <Link href="/marrowlink">
               Learn about the mod
@@ -105,7 +113,7 @@ export function HeroSection() {
 
         <motion.p
           {...fadeUp(0.32)}
-          className="mt-8 text-xs text-muted font-mono tracking-wide uppercase"
+          className="mt-8 text-[11px] text-muted font-mono tracking-[0.2em] uppercase"
         >
           Free to install · Windows · PCVR
         </motion.p>
@@ -117,7 +125,7 @@ export function HeroSection() {
         transition={{ delay: 1, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <div className="h-10 w-px bg-gradient-to-b from-border to-transparent" />
+        <div className="h-10 w-px bg-gradient-to-b from-hazard/60 to-transparent" />
       </motion.div>
     </section>
   );

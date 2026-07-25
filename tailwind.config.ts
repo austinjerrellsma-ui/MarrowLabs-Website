@@ -25,6 +25,11 @@ const config: Config = {
           DEFAULT: "rgb(var(--studio-primary) / <alpha-value>)",
           glow: "rgb(var(--studio-glow) / <alpha-value>)",
         },
+        hazard: {
+          DEFAULT: "rgb(var(--hazard) / <alpha-value>)",
+          glow: "rgb(var(--hazard-glow) / <alpha-value>)",
+        },
+        bone: "rgb(var(--bone) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-geist)", "system-ui", "sans-serif"],
