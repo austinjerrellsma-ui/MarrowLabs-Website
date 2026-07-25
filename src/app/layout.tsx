@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist",
+const nasalization = localFont({
+  src: "../fonts/Nasalization-Rg.woff2",
+  variable: "--font-nasalization",
   display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -54,11 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geist.variable} ${spaceGrotesk.variable} dark scroll-smooth`}
-    >
-      <body className="relative min-h-screen flex flex-col">
+    <html lang="en" className={`${nasalization.variable} dark scroll-smooth`}>
+      <body className={`${nasalization.className} relative min-h-screen flex flex-col`}>
         <Nav />
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />

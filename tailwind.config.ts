@@ -32,8 +32,9 @@ const config: Config = {
         bone: "rgb(var(--bone) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nasalization)", "system-ui", "sans-serif"],
+        display: ["var(--font-nasalization)", "system-ui", "sans-serif"],
+        mono: ["var(--font-nasalization)", "ui-monospace", "monospace"],
       },
       keyframes: {
         "glow-pulse": {
