@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { NAV_LINKS, CREDITS } from "@/lib/constants";
 import { AnimatePresence, motion } from "framer-motion";
+import { EdgeGlowButton } from "@/components/ui/EdgeGlowButton";
 
 export function Footer() {
   const [creditsOpen, setCreditsOpen] = useState(false);
@@ -37,16 +38,14 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-border pt-6 flex flex-col items-center gap-5">
-          <div className="flex flex-col items-center gap-3">
-            <button
-              type="button"
+          <div className="flex flex-col items-center gap-4">
+            <EdgeGlowButton
               onClick={() => setCreditsOpen((o) => !o)}
               aria-expanded={creditsOpen}
-              className="bone-panel group relative px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-bone transition-colors hover:text-hazard hover:border-hazard/50"
+              aria-label={CREDITS.buttonLabel}
             >
-              <span className="absolute left-0 top-0 h-full w-1 bg-hazard opacity-80" aria-hidden />
               {CREDITS.buttonLabel}
-            </button>
+            </EdgeGlowButton>
 
             <AnimatePresence>
               {creditsOpen && (
@@ -54,7 +53,7 @@ export function Footer() {
                   initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
-                  className="bone-panel px-5 py-3 font-mono text-sm tracking-wide text-hazard"
+                  className="font-mono text-sm tracking-wide text-hazard"
                 >
                   {CREDITS.ownerLine}
                 </motion.p>
