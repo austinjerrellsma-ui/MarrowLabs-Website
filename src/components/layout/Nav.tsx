@@ -4,8 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { NAV_LINKS, DOWNLOAD_URL } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
+import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -60,14 +59,6 @@ export function Nav() {
           })}
         </ul>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Button asChild size="sm">
-            <a href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">
-              Download Hub
-            </a>
-          </Button>
-        </div>
-
         <button
           className="md:hidden p-2 text-muted-foreground hover:text-foreground"
           onClick={() => setMobileOpen((o) => !o)}
@@ -97,17 +88,6 @@ export function Nav() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
-                <Button asChild size="sm" className="w-full">
-                  <a
-                    href={DOWNLOAD_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download Hub
-                  </a>
-                </Button>
-              </li>
             </ul>
           </motion.div>
         )}
