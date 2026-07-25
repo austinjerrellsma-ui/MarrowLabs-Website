@@ -203,8 +203,10 @@
   width: 18px;
   height: 18px;
   border: 2px solid var(--fc-neon);
-  transition: 0.3s;
+  background: transparent;
+  transition: box-shadow 0.3s;
   z-index: 4;
+  pointer-events: none;
 }
 
 .fc-tl {
