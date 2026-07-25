@@ -8,6 +8,11 @@ export const NAV_LINKS = [
 export const DOWNLOAD_URL =
   "https://github.com/MarrowLabs/MarrowLink-Hub/releases/latest";
 
+export const CREDITS = {
+  buttonLabel: "Credits",
+  ownerLine: "OWNER: Ajay.",
+} as const;
+
 export const ABOUT = {
   name: "MarrowLabs",
   mission:

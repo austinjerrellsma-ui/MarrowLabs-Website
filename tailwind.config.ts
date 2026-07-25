@@ -25,10 +25,16 @@ const config: Config = {
           DEFAULT: "rgb(var(--studio-primary) / <alpha-value>)",
           glow: "rgb(var(--studio-glow) / <alpha-value>)",
         },
+        hazard: {
+          DEFAULT: "rgb(var(--hazard) / <alpha-value>)",
+          glow: "rgb(var(--hazard-glow) / <alpha-value>)",
+        },
+        bone: "rgb(var(--bone) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nasalization)", "system-ui", "sans-serif"],
+        display: ["var(--font-nasalization)", "system-ui", "sans-serif"],
+        mono: ["var(--font-nasalization)", "ui-monospace", "monospace"],
       },
       keyframes: {
         "glow-pulse": {

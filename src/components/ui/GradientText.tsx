@@ -7,11 +7,12 @@ interface GradientTextProps {
   as?: "span" | "h1" | "h2" | "h3";
 }
 
+/* Original color → slightly darker same hue (subtle, never black) */
 const gradients = {
-  ml: "from-violet-400 via-violet-300 to-purple-200",
-  hub: "from-cyan-400 via-cyan-300 to-sky-200",
-  studio: "from-amber-400 via-amber-300 to-yellow-200",
-  white: "from-white via-zinc-100 to-zinc-300",
+  ml: "from-violet-300 via-violet-400 to-violet-500",
+  hub: "from-cyan-300 via-cyan-400 to-cyan-500",
+  studio: "from-amber-300 via-amber-400 to-amber-500",
+  white: "from-bone via-[#e4dccb] to-[#cfc5b0]",
 };
 
 export function GradientText({

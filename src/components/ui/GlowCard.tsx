@@ -9,6 +9,7 @@ interface GlowCardProps {
   className?: string;
   glowColor?: string;
   interactive?: boolean;
+  accentRail?: string;
 }
 
 export function GlowCard({
@@ -16,6 +17,7 @@ export function GlowCard({
   className,
   glowColor = "var(--ml-glow)",
   interactive = true,
+  accentRail,
 }: GlowCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -34,18 +36,28 @@ export function GlowCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "relative overflow-hidden rounded-xl border border-border bg-surface p-6",
+        "facility-panel relative overflow-hidden rounded-sm border border-border bg-surface p-5 sm:p-6",
         "transition-colors duration-300",
         className,
       )}
-      whileHover={interactive ? { borderColor: `${glowColor}60` } : undefined}
+      whileHover={interactive ? { borderColor: `${glowColor}70` } : undefined}
     >
+      {accentRail ? (
+        <span
+          className={cn("absolute left-0 top-0 h-full w-[3px]", accentRail)}
+          aria-hidden
+        />
+      ) : null}
+      <span className="facility-corner facility-corner-tl" aria-hidden />
+      <span className="facility-corner facility-corner-tr" aria-hidden />
+      <span className="facility-corner facility-corner-bl" aria-hidden />
+      <span className="facility-corner facility-corner-br" aria-hidden />
       {interactive && (
         <div
-          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300"
           style={{
             opacity: hovered ? 1 : 0,
-            background: `radial-gradient(300px circle at ${pos.x}px ${pos.y}px, ${glowColor}18, transparent 70%)`,
+            background: `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, ${glowColor}22, transparent 70%)`,
           }}
         />
       )}
