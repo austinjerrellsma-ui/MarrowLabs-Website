@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import "./facility-conveyor.css";
 
@@ -50,9 +51,9 @@ const TREAD_PLATES = Math.round(SCROLL_PX / TREAD_PLATE_W);
 function Crate() {
   return (
     <svg width="42" height="34" viewBox="0 0 42 34" aria-hidden>
-      <rect x="2" y="6" width="38" height="26" rx="1" fill="#3a3228" stroke="#ff7a00" strokeWidth="1.2" />
+      <rect x="2" y="6" width="38" height="26" rx="1" fill="#3a3228" stroke="currentColor" strokeWidth="1.2" />
       <rect x="2" y="6" width="38" height="6" fill="#4a4034" />
-      <path d="M2 18h38M14 6v26M28 6v26" stroke="#ff9a45" strokeWidth="1" opacity="0.7" />
+      <path d="M2 18h38M14 6v26M28 6v26" stroke="currentColor" strokeWidth="1" opacity="0.75" />
       <rect x="16" y="12" width="10" height="8" fill="none" stroke="#cfc5b0" strokeWidth="0.8" opacity="0.5" />
     </svg>
   );
@@ -65,12 +66,12 @@ function Barrel() {
       <path
         d="M4 10c0-3 4.5-5 10-5s10 2 10 5v18c0 3-4.5 5-10 5s-10-2-10-5V10z"
         fill="#5a3a18"
-        stroke="#ff7a00"
+        stroke="currentColor"
         strokeWidth="1.1"
       />
-      <ellipse cx="14" cy="10" rx="10" ry="4" fill="#7a5228" stroke="#ff9a45" strokeWidth="0.9" />
+      <ellipse cx="14" cy="10" rx="10" ry="4" fill="#7a5228" stroke="currentColor" strokeWidth="0.9" />
       <path d="M4 16h20M4 22h20" stroke="#cfc5b0" strokeWidth="1" opacity="0.45" />
-      <path d="M4 19h20" stroke="#ff7a00" strokeWidth="1.4" opacity="0.75" />
+      <path d="M4 19h20" stroke="currentColor" strokeWidth="1.4" opacity="0.85" />
     </svg>
   );
 }
@@ -78,17 +79,17 @@ function Barrel() {
 function Robot() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden>
-      <rect x="11" y="14" width="18" height="16" rx="2" fill="#2a2e34" stroke="#ff7a00" strokeWidth="1.2" />
-      <rect x="13" y="8" width="14" height="8" rx="1.5" fill="#3a4048" stroke="#ff9a45" strokeWidth="1" />
-      <circle cx="17" cy="12" r="1.6" fill="#ff7a00" />
-      <circle cx="23" cy="12" r="1.6" fill="#ff7a00" />
+      <rect x="11" y="14" width="18" height="16" rx="2" fill="#2a2e34" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="13" y="8" width="14" height="8" rx="1.5" fill="#3a4048" stroke="currentColor" strokeWidth="1" />
+      <circle cx="17" cy="12" r="1.6" fill="currentColor" />
+      <circle cx="23" cy="12" r="1.6" fill="currentColor" />
       <rect x="15" y="18" width="10" height="3" rx="0.5" fill="#cfc5b0" opacity="0.35" />
-      <rect x="7" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="#ff7a00" strokeWidth="0.8" />
-      <rect x="29" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="#ff7a00" strokeWidth="0.8" />
-      <rect x="14" y="30" width="4" height="6" fill="#3a4048" stroke="#ff7a00" strokeWidth="0.8" />
-      <rect x="22" y="30" width="4" height="6" fill="#3a4048" stroke="#ff7a00" strokeWidth="0.8" />
-      <path d="M18 8V4h4" stroke="#ff9a45" strokeWidth="1.2" fill="none" />
-      <circle cx="22" cy="3.5" r="1.4" fill="#ff7a00" />
+      <rect x="7" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="29" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="14" y="30" width="4" height="6" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="22" y="30" width="4" height="6" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M18 8V4h4" stroke="currentColor" strokeWidth="1.2" fill="none" />
+      <circle cx="22" cy="3.5" r="1.4" fill="currentColor" />
     </svg>
   );
 }
@@ -96,11 +97,11 @@ function Robot() {
 function Pallet() {
   return (
     <svg width="48" height="22" viewBox="0 0 48 22" aria-hidden>
-      <rect x="1" y="12" width="46" height="8" rx="1" fill="#2e261c" stroke="#ff7a00" strokeWidth="1" />
+      <rect x="1" y="12" width="46" height="8" rx="1" fill="#2e261c" stroke="currentColor" strokeWidth="1" />
       <rect x="4" y="4" width="12" height="10" fill="#4a4034" stroke="#cfc5b0" strokeWidth="0.7" opacity="0.85" />
-      <rect x="18" y="2" width="12" height="12" fill="#3a3228" stroke="#ff9a45" strokeWidth="0.8" />
+      <rect x="18" y="2" width="12" height="12" fill="#3a3228" stroke="currentColor" strokeWidth="0.8" />
       <rect x="32" y="5" width="12" height="9" fill="#4a4034" stroke="#cfc5b0" strokeWidth="0.7" opacity="0.85" />
-      <path d="M1 16h46M12 12v8M24 12v8M36 12v8" stroke="#ff7a00" strokeWidth="0.8" opacity="0.55" />
+      <path d="M1 16h46M12 12v8M24 12v8M36 12v8" stroke="currentColor" strokeWidth="0.8" opacity="0.65" />
     </svg>
   );
 }
@@ -108,11 +109,11 @@ function Pallet() {
 function Canister() {
   return (
     <svg width="24" height="34" viewBox="0 0 24 34" aria-hidden>
-      <rect x="5" y="6" width="14" height="24" rx="2" fill="#243038" stroke="#ff7a00" strokeWidth="1.1" />
-      <rect x="7" y="2" width="10" height="5" rx="1" fill="#3a4850" stroke="#ff9a45" strokeWidth="0.9" />
+      <rect x="5" y="6" width="14" height="24" rx="2" fill="#243038" stroke="currentColor" strokeWidth="1.1" />
+      <rect x="7" y="2" width="10" height="5" rx="1" fill="#3a4850" stroke="currentColor" strokeWidth="0.9" />
       <rect x="8" y="12" width="8" height="10" rx="1" fill="none" stroke="#cfc5b0" strokeWidth="0.8" opacity="0.45" />
-      <circle cx="12" cy="17" r="2" fill="#ff7a00" opacity="0.8" />
-      <path d="M5 26h14" stroke="#ff9a45" strokeWidth="1" opacity="0.6" />
+      <circle cx="12" cy="17" r="2" fill="currentColor" opacity="0.9" />
+      <path d="M5 26h14" stroke="currentColor" strokeWidth="1" opacity="0.7" />
     </svg>
   );
 }
@@ -201,8 +202,21 @@ export function FacilityConveyorBackground({
 }: {
   className?: string;
 }) {
+  const pathname = usePathname();
+  const accent = pathname.startsWith("/marrowlink")
+    ? "ml"
+    : pathname.startsWith("/hub")
+      ? "hub"
+      : pathname.startsWith("/studio")
+        ? "studio"
+        : "hazard";
+
   return (
-    <div className={cn("fcb-root", className)} aria-hidden>
+    <div
+      className={cn("fcb-root", className)}
+      data-accent={accent}
+      aria-hidden
+    >
       {BELTS.map((belt) => (
         <Belt key={belt.id} config={belt} />
       ))}
