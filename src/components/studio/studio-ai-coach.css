@@ -1,0 +1,11 @@
+/* Studio Node Coach AI — facility chat bay */
+.studio-ai-coach {
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 20% 0%,
+      rgb(var(--studio-primary) / 0.08),
+      transparent 60%
+    ),
+    rgb(var(--surface) / 0.92);
+  min-height: 340px;
+}

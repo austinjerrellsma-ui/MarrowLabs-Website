@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/constants";
 import { StudioHeroSection } from "@/components/studio/StudioHeroSection";
 import { NodeGraphPreview } from "@/components/studio/NodeGraphPreview";
+import { StudioAiCoach } from "@/components/studio/StudioAiCoach";
 import { StudioFeatureGrid } from "@/components/studio/StudioFeatureGrid";
 import { CtaStrip } from "@/components/home/CtaStrip";
 import { ProductTheme } from "@/components/products/ProductTheme";
@@ -18,6 +19,7 @@ export default function StudioPage() {
     <ProductTheme accent="studio">
       <StudioHeroSection />
       <NodeGraphPreview />
+      <StudioAiCoach />
       <StudioFeatureGrid />
       <CtaStrip />
     </ProductTheme>
