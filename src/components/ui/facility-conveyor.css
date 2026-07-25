@@ -1,0 +1,162 @@
+/* Facility conveyor belts — BONELAB void logistics backdrop */
+.fcb-root {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.22;
+}
+
+.fcb-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 20%, transparent 0%, rgb(6 6 8 / 0.55) 70%),
+    linear-gradient(180deg, rgb(6 6 8 / 0.35), rgb(6 6 8 / 0.75));
+  z-index: 2;
+}
+
+.fcb-belt-lane {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 72px;
+  z-index: 1;
+}
+
+.fcb-belt-lane[data-depth="far"] {
+  opacity: 0.55;
+  transform: scale(0.85);
+}
+
+.fcb-belt-lane[data-depth="mid"] {
+  opacity: 0.8;
+}
+
+.fcb-belt-lane[data-depth="near"] {
+  opacity: 1;
+}
+
+.fcb-belt {
+  position: absolute;
+  inset: auto 0 0;
+  height: 28px;
+  background:
+    linear-gradient(180deg, #2a2a2c 0%, #161618 45%, #0c0c0e 100%);
+  border-top: 2px solid rgb(255 122 0 / 0.45);
+  border-bottom: 2px solid rgb(255 122 0 / 0.25);
+  box-shadow:
+    0 -1px 0 rgb(237 230 217 / 0.06),
+    inset 0 1px 0 rgb(255 122 0 / 0.12);
+  overflow: hidden;
+}
+
+.fcb-belt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(255 122 0 / 0.18) 0 10px,
+    transparent 10px 28px
+  );
+  animation: fcb-belt-scroll var(--belt-duration, 18s) linear infinite;
+  animation-direction: var(--belt-dir, normal);
+}
+
+.fcb-belt::after {
+  content: "";
+  position: absolute;
+  inset: 4px 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(0 0 0 / 0.35) 0 4px,
+    transparent 4px 22px
+  );
+  animation: fcb-belt-scroll var(--belt-duration, 18s) linear infinite;
+  animation-direction: var(--belt-dir, normal);
+  opacity: 0.7;
+}
+
+.fcb-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 122 0 / 0.35),
+    transparent
+  );
+}
+
+.fcb-cargo-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  height: 44px;
+  overflow: visible;
+}
+
+.fcb-cargo-row {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  gap: 88px;
+  height: 100%;
+  width: max-content;
+  animation: fcb-cargo-move var(--cargo-duration, 42s) linear infinite;
+  animation-direction: var(--belt-dir, normal);
+  will-change: transform;
+}
+
+.fcb-item {
+  position: relative;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.55));
+}
+
+.fcb-item svg {
+  display: block;
+  overflow: visible;
+}
+
+@keyframes fcb-belt-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 112px 0;
+  }
+}
+
+@keyframes fcb-cargo-move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fcb-belt::before,
+  .fcb-belt::after,
+  .fcb-cargo-row {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .fcb-root {
+    opacity: 0.14;
+  }
+
+  .fcb-belt-lane[data-depth="far"] {
+    display: none;
+  }
+}
