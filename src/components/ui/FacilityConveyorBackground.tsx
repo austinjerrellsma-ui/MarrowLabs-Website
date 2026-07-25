@@ -10,8 +10,8 @@ type BeltConfig = {
   top: string;
   depth: "far" | "mid" | "near";
   direction: "left" | "right";
-  beltDuration: string;
-  cargoDuration: string;
+  /** Shared duration for cargo + belt treads so they stay locked */
+  moveDuration: string;
   items: CargoKind[];
 };
 
@@ -21,8 +21,7 @@ const BELTS: BeltConfig[] = [
     top: "18%",
     depth: "far",
     direction: "right",
-    beltDuration: "22s",
-    cargoDuration: "58s",
+    moveDuration: "58s",
     items: ["crate", "barrel", "robot", "pallet", "canister", "crate", "barrel"],
   },
   {
@@ -30,8 +29,7 @@ const BELTS: BeltConfig[] = [
     top: "46%",
     depth: "mid",
     direction: "left",
-    beltDuration: "16s",
-    cargoDuration: "44s",
+    moveDuration: "44s",
     items: ["robot", "crate", "canister", "barrel", "pallet", "robot", "crate"],
   },
   {
@@ -39,11 +37,15 @@ const BELTS: BeltConfig[] = [
     top: "74%",
     depth: "near",
     direction: "right",
-    beltDuration: "12s",
-    cargoDuration: "36s",
+    moveDuration: "36s",
     items: ["barrel", "pallet", "crate", "robot", "canister", "barrel", "crate"],
   },
 ];
+
+/** Shared loop distance so belt treads + cargo travel at the same speed */
+const SCROLL_PX = 1600;
+const TREAD_PLATE_W = 20;
+const TREAD_PLATES = Math.round(SCROLL_PX / TREAD_PLATE_W);
 
 function Crate() {
   return (
@@ -130,10 +132,23 @@ function CargoItem({ kind }: { kind: CargoKind }) {
   }
 }
 
+function BeltTread({ id }: { id: string }) {
+  // Two identical plate runs → seamless when translating by exactly one run
+  const plates = Array.from({ length: TREAD_PLATES * 2 }, (_, i) => i);
+
+  return (
+    <div className="fcb-tread-row">
+      {plates.map((i) => (
+        <span key={`${id}-${i}`} className="fcb-tread-plate" />
+      ))}
+    </div>
+  );
+}
+
 function Belt({ config }: { config: BeltConfig }) {
   const dir = config.direction === "left" ? "reverse" : "normal";
-  // Duplicate items for seamless loop (translateX -50%)
-  const loop = [...config.items, ...config.items];
+  // Two identical cargo sets → seamless when translating by SCROLL_PX
+  const sets = [0, 1];
 
   return (
     <div
@@ -141,22 +156,38 @@ function Belt({ config }: { config: BeltConfig }) {
       data-depth={config.depth}
       style={{
         top: config.top,
-        ["--belt-duration" as string]: config.beltDuration,
-        ["--cargo-duration" as string]: config.cargoDuration,
+        ["--move-duration" as string]: config.moveDuration,
+        ["--scroll-px" as string]: `${SCROLL_PX}px`,
         ["--belt-dir" as string]: dir,
       }}
     >
       <div className="fcb-rail" aria-hidden />
       <div className="fcb-cargo-track">
         <div className="fcb-cargo-row">
-          {loop.map((kind, i) => (
-            <div key={`${config.id}-${i}`} className="fcb-item">
-              <CargoItem kind={kind} />
+          {sets.map((set) => (
+            <div
+              key={`${config.id}-set-${set}`}
+              className="fcb-cargo-set"
+              style={{ width: SCROLL_PX }}
+            >
+              {config.items.map((kind, i) => (
+                <div key={`${config.id}-${set}-${i}`} className="fcb-item">
+                  <CargoItem kind={kind} />
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </div>
-      <div className="fcb-belt" aria-hidden />
+      <div className="fcb-belt" aria-hidden>
+        <div className="fcb-tread-track top">
+          <BeltTread id={`${config.id}-top`} />
+        </div>
+        <div className="fcb-belt-deck" />
+        <div className="fcb-tread-track bottom">
+          <BeltTread id={`${config.id}-bottom`} />
+        </div>
+      </div>
     </div>
   );
 }
