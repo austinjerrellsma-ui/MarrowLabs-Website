@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { ProductTriptych } from "@/components/home/ProductTriptych";
+import { ProductExpandableList } from "@/components/home/ProductExpandableList";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { CtaStrip } from "@/components/home/CtaStrip";
 
@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ProductTriptych />
+      <ProductExpandableList />
       <HowItWorksSection />
       <CtaStrip />
     </>
