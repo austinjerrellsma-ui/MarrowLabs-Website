@@ -1,0 +1,425 @@
+/* From Uiverse.io by kennyotsu — BONELAB product hover-tracker cards */
+.ht-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  transition: 200ms;
+}
+
+.ht-container:active {
+  transform: scale(0.985);
+}
+
+.ht-card {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.35rem;
+  transition: 700ms;
+  overflow: hidden;
+  border: 1px solid rgba(255, 122, 0, 0.28);
+  background:
+    linear-gradient(160deg, rgba(6, 6, 8, 0.55) 0%, rgba(6, 6, 8, 0.82) 55%),
+    var(--ht-gradient);
+  box-shadow:
+    inset 0 0 0 1px rgba(237, 230, 217, 0.06),
+    0 0 0 1px rgba(255, 122, 0, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.ht-container[data-accent="ml"] {
+  --ht-gradient: linear-gradient(
+    43deg,
+    rgb(76, 29, 149) 0%,
+    rgb(139, 92, 246) 48%,
+    rgb(255, 122, 0) 100%
+  );
+  --ht-subtitle: rgb(196, 181, 253);
+  --ht-glow: rgba(139, 92, 246, 0.45);
+}
+
+.ht-container[data-accent="hub"] {
+  --ht-gradient: linear-gradient(
+    43deg,
+    rgb(8, 51, 68) 0%,
+    rgb(6, 182, 212) 48%,
+    rgb(255, 122, 0) 100%
+  );
+  --ht-subtitle: rgb(165, 243, 252);
+  --ht-glow: rgba(6, 182, 212, 0.45);
+}
+
+.ht-container[data-accent="studio"] {
+  --ht-gradient: linear-gradient(
+    43deg,
+    rgb(69, 26, 3) 0%,
+    rgb(255, 122, 0) 48%,
+    rgb(251, 191, 36) 100%
+  );
+  --ht-subtitle: rgb(253, 230, 138);
+  --ht-glow: rgba(255, 122, 0, 0.5);
+}
+
+.ht-subtitle {
+  transform: translateY(118px);
+  color: var(--ht-subtitle);
+  text-align: center;
+  width: calc(100% - 2rem);
+  font-family: var(--font-nasalization), system-ui, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  transition: opacity 300ms ease;
+}
+
+.ht-title {
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 80ms;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.35rem 1.25rem 2.75rem;
+  font-family: var(--font-nasalization), system-ui, sans-serif;
+  color: #ede6d9;
+  text-align: left;
+  pointer-events: none;
+}
+
+.ht-title-name {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.ht-title-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 230, 217, 0.82);
+}
+
+.ht-title-body {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: rgba(237, 230, 217, 0.78);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ht-title-cta {
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ff7a00;
+  text-shadow: 0 0 12px rgba(255, 122, 0, 0.45);
+}
+
+.ht-tracker:hover ~ .ht-card .ht-title {
+  opacity: 1;
+}
+
+.ht-tracker:hover ~ .ht-card .ht-subtitle {
+  opacity: 0;
+}
+
+.ht-prompt {
+  bottom: 14px;
+  left: 16px;
+  z-index: 20;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: 300ms ease-in-out;
+  position: absolute;
+  max-width: 140px;
+  color: #ede6d9;
+  font-family: var(--font-nasalization), system-ui, sans-serif;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
+}
+
+.ht-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 5;
+  display: flex;
+  height: 2.4rem;
+  width: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(237, 230, 217, 0.35);
+  background: rgba(6, 6, 8, 0.45);
+  color: #ede6d9;
+  transition: opacity 250ms ease;
+}
+
+.ht-tracker:hover ~ .ht-card .ht-icon {
+  opacity: 0;
+}
+
+.ht-tracker {
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+}
+
+.ht-tracker:hover {
+  cursor: pointer;
+}
+
+.ht-tracker:hover ~ .ht-card .ht-prompt {
+  opacity: 0;
+}
+
+.ht-tracker:hover ~ .ht-card {
+  transition: 300ms;
+  filter: brightness(1.12);
+}
+
+.ht-container:hover .ht-card::before {
+  transition: 200ms;
+  opacity: 0.7;
+}
+
+.ht-canvas {
+  perspective: 800px;
+  inset: 0;
+  z-index: 200;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0;
+  grid-template-areas:
+    "tr-1 tr-2 tr-3 tr-4 tr-5"
+    "tr-6 tr-7 tr-8 tr-9 tr-10"
+    "tr-11 tr-12 tr-13 tr-14 tr-15"
+    "tr-16 tr-17 tr-18 tr-19 tr-20"
+    "tr-21 tr-22 tr-23 tr-24 tr-25";
+}
+
+.ht-card::before {
+  content: "";
+  background: var(--ht-gradient);
+  filter: blur(2rem);
+  opacity: 0.28;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transition: 200ms;
+}
+
+.ht-tr-1 {
+  grid-area: tr-1;
+}
+.ht-tr-2 {
+  grid-area: tr-2;
+}
+.ht-tr-3 {
+  grid-area: tr-3;
+}
+.ht-tr-4 {
+  grid-area: tr-4;
+}
+.ht-tr-5 {
+  grid-area: tr-5;
+}
+.ht-tr-6 {
+  grid-area: tr-6;
+}
+.ht-tr-7 {
+  grid-area: tr-7;
+}
+.ht-tr-8 {
+  grid-area: tr-8;
+}
+.ht-tr-9 {
+  grid-area: tr-9;
+}
+.ht-tr-10 {
+  grid-area: tr-10;
+}
+.ht-tr-11 {
+  grid-area: tr-11;
+}
+.ht-tr-12 {
+  grid-area: tr-12;
+}
+.ht-tr-13 {
+  grid-area: tr-13;
+}
+.ht-tr-14 {
+  grid-area: tr-14;
+}
+.ht-tr-15 {
+  grid-area: tr-15;
+}
+.ht-tr-16 {
+  grid-area: tr-16;
+}
+.ht-tr-17 {
+  grid-area: tr-17;
+}
+.ht-tr-18 {
+  grid-area: tr-18;
+}
+.ht-tr-19 {
+  grid-area: tr-19;
+}
+.ht-tr-20 {
+  grid-area: tr-20;
+}
+.ht-tr-21 {
+  grid-area: tr-21;
+}
+.ht-tr-22 {
+  grid-area: tr-22;
+}
+.ht-tr-23 {
+  grid-area: tr-23;
+}
+.ht-tr-24 {
+  grid-area: tr-24;
+}
+.ht-tr-25 {
+  grid-area: tr-25;
+}
+
+.ht-tr-1:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
+}
+.ht-tr-2:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+}
+.ht-tr-3:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+}
+.ht-tr-4:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+}
+.ht-tr-5:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+}
+.ht-tr-6:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+}
+.ht-tr-7:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+}
+.ht-tr-8:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+}
+.ht-tr-9:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+}
+.ht-tr-10:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+}
+.ht-tr-11:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+}
+.ht-tr-12:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+}
+.ht-tr-13:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+.ht-tr-14:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
+}
+.ht-tr-15:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+}
+.ht-tr-16:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+}
+.ht-tr-17:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+}
+.ht-tr-18:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+}
+.ht-tr-19:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+}
+.ht-tr-20:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+}
+.ht-tr-21:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+}
+.ht-tr-22:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+}
+.ht-tr-23:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+}
+.ht-tr-24:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+}
+.ht-tr-25:hover ~ .ht-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.ht-noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  .ht-container {
+    min-height: 280px;
+  }
+
+  .ht-subtitle {
+    transform: translateY(100px);
+  }
+}
