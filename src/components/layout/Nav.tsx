@@ -25,11 +25,8 @@ const DOCK_ITEMS = [
 export function Nav() {
   return (
     <header className="pointer-events-none fixed top-0 inset-x-0 z-50">
-      <div className="pointer-events-auto mx-auto flex max-w-7xl items-start justify-between gap-4 px-4 pt-4 sm:px-6">
-        <Link
-          href="/"
-          className="mt-2 flex items-center gap-2.5 group shrink-0"
-        >
+      <nav className="pointer-events-auto mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6">
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <div className="h-7 w-7 rounded-sm bg-hazard/15 border border-hazard/40 flex items-center justify-center">
             <div className="h-3 w-3 rounded-[1px] bg-hazard animate-glow-pulse" />
           </div>
@@ -38,13 +35,16 @@ export function Nav() {
           </span>
         </Link>
 
-        <div className="flex-1 flex justify-center md:justify-center">
-          <FloatingDock items={DOCK_ITEMS} mobileClassName="ml-auto" />
+        <div className="flex flex-1 items-center justify-end md:justify-center">
+          <FloatingDock items={DOCK_ITEMS} />
         </div>
 
-        {/* Spacer to balance the brand on desktop so the dock stays visually centered */}
-        <div className="hidden sm:block w-[140px] shrink-0" aria-hidden />
-      </div>
+        {/* Balance brand width so the dock stays visually centered on desktop */}
+        <div
+          className="hidden md:block w-[132px] shrink-0"
+          aria-hidden
+        />
+      </nav>
     </header>
   );
 }
