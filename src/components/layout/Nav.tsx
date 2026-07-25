@@ -15,14 +15,11 @@ export function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      {/* Facility top caution stripe */}
-      <div className="h-1.5 w-full hazard-stripe" aria-hidden />
-
       <div className="relative border-b border-hazard/30 bg-[rgb(10_10_12/0.92)] shadow-[0_12px_40px_rgb(0_0_0/0.55)] backdrop-blur-md">
         {/* subtle facility grid inside the bar */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-1.5 bottom-0 opacity-[0.04]"
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
               "linear-gradient(rgb(237 230 217) 1px, transparent 1px), linear-gradient(90deg, rgb(237 230 217) 1px, transparent 1px)",
