@@ -39,11 +39,6 @@ export function FacilityCoreCard({
       ))}
 
       <div className="fc-card">
-        <div className="fc-corner fc-tl" aria-hidden />
-        <div className="fc-corner fc-tr" aria-hidden />
-        <div className="fc-corner fc-bl" aria-hidden />
-        <div className="fc-corner fc-br" aria-hidden />
-
         <div className="fc-content">
           <div className="fc-cap">{code}</div>
           <h3 className="fc-title fc-glitch" data-text={title}>

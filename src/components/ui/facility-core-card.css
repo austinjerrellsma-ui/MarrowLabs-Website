@@ -198,91 +198,6 @@
   box-shadow: 0 0 10px var(--fc-glow);
 }
 
-/* True L-shaped brackets — two lines only, no filled box */
-.fc-corner {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  z-index: 4;
-  pointer-events: none;
-  transition: filter 0.3s;
-}
-
-.fc-corner::before,
-.fc-corner::after {
-  content: "";
-  position: absolute;
-  background: var(--fc-neon);
-  box-shadow: none;
-}
-
-/* horizontal arm */
-.fc-corner::before {
-  height: 2px;
-  width: 100%;
-}
-
-/* vertical arm */
-.fc-corner::after {
-  width: 2px;
-  height: 100%;
-}
-
-.fc-tl {
-  top: 16px;
-  left: 16px;
-}
-.fc-tl::before {
-  top: 0;
-  left: 0;
-}
-.fc-tl::after {
-  top: 0;
-  left: 0;
-}
-
-.fc-tr {
-  top: 16px;
-  right: 16px;
-}
-.fc-tr::before {
-  top: 0;
-  right: 0;
-}
-.fc-tr::after {
-  top: 0;
-  right: 0;
-}
-
-.fc-bl {
-  bottom: 16px;
-  left: 16px;
-}
-.fc-bl::before {
-  bottom: 0;
-  left: 0;
-}
-.fc-bl::after {
-  bottom: 0;
-  left: 0;
-}
-
-.fc-br {
-  bottom: 16px;
-  right: 16px;
-}
-.fc-br::before {
-  bottom: 0;
-  right: 0;
-}
-.fc-br::after {
-  bottom: 0;
-  right: 0;
-}
-
 .fc-glitch {
   position: relative;
 }
@@ -447,11 +362,6 @@
 .fc-tr-9:hover ~ .fc-card::after {
   opacity: 1;
   transform: translate(20%, 20%);
-}
-
-.fc-wrapper:hover .fc-corner {
-  /* drop-shadow follows the L bars only — no filled black square */
-  filter: drop-shadow(0 0 4px var(--fc-neon));
 }
 
 @media (max-width: 640px) {
