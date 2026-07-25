@@ -76,20 +76,56 @@ function Barrel() {
   );
 }
 
+/** Humanoid android on its side, front-facing toward the viewer */
 function Robot() {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden>
-      <rect x="11" y="14" width="18" height="16" rx="2" fill="#2a2e34" stroke="currentColor" strokeWidth="1.2" />
-      <rect x="13" y="8" width="14" height="8" rx="1.5" fill="#3a4048" stroke="currentColor" strokeWidth="1" />
-      <circle cx="17" cy="12" r="1.6" fill="currentColor" />
-      <circle cx="23" cy="12" r="1.6" fill="currentColor" />
-      <rect x="15" y="18" width="10" height="3" rx="0.5" fill="#cfc5b0" opacity="0.35" />
-      <rect x="7" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="currentColor" strokeWidth="0.8" />
-      <rect x="29" y="16" width="4" height="10" rx="1" fill="#2a2e34" stroke="currentColor" strokeWidth="0.8" />
-      <rect x="14" y="30" width="4" height="6" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
-      <rect x="22" y="30" width="4" height="6" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
-      <path d="M18 8V4h4" stroke="currentColor" strokeWidth="1.2" fill="none" />
-      <circle cx="22" cy="3.5" r="1.4" fill="currentColor" />
+    <svg width="58" height="30" viewBox="0 0 58 30" aria-hidden>
+      {/* Soft ground contact */}
+      <ellipse cx="29" cy="27.5" rx="24" ry="2.2" fill="#1a1208" opacity="0.35" />
+
+      {/* Legs (left) — extended, stacked for side-lying front view */}
+      <rect x="2" y="8" width="14" height="6.5" rx="1.5" fill="#2a2e34" stroke="currentColor" strokeWidth="1" />
+      <rect x="2" y="16" width="14" height="6.5" rx="1.5" fill="#323840" stroke="currentColor" strokeWidth="1" />
+      <rect x="1" y="9" width="3.5" height="4.5" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
+      <rect x="1" y="17" width="3.5" height="4.5" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
+      {/* Knee joints */}
+      <circle cx="9" cy="11.2" r="1.3" fill="#1a1e24" stroke="currentColor" strokeWidth="0.6" />
+      <circle cx="9" cy="19.2" r="1.3" fill="#1a1e24" stroke="currentColor" strokeWidth="0.6" />
+
+      {/* Pelvis / hip block */}
+      <rect x="14" y="9" width="6" height="13" rx="1.5" fill="#3a4048" stroke="currentColor" strokeWidth="1" />
+
+      {/* Torso — chest toward viewer */}
+      <rect x="19" y="6.5" width="18" height="18" rx="2.5" fill="#2a2e34" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="22" y="9" width="12" height="9" rx="1.5" fill="#3a444c" stroke="#cfc5b0" strokeWidth="0.7" opacity="0.9" />
+      <path d="M24 12h8M24 15h8" stroke="currentColor" strokeWidth="0.8" opacity="0.55" />
+      <circle cx="28" cy="20.5" r="1.4" fill="currentColor" opacity="0.85" />
+
+      {/* Near arm (top of figure, resting along torso) */}
+      <rect x="22" y="3.5" width="12" height="4" rx="1.5" fill="#323840" stroke="currentColor" strokeWidth="0.9" />
+      <rect x="33" y="3.8" width="4" height="3.4" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.7" />
+      {/* Far arm (bottom edge, peeking under torso) */}
+      <rect x="23" y="23.5" width="11" height="3.5" rx="1.2" fill="#252930" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="33" y="23.7" width="3.5" height="3" rx="0.9" fill="#323840" stroke="currentColor" strokeWidth="0.6" />
+
+      {/* Neck */}
+      <rect x="36.5" y="12" width="3.5" height="7" rx="1" fill="#3a4048" stroke="currentColor" strokeWidth="0.8" />
+
+      {/* Head — facing viewer */}
+      <rect x="39" y="8" width="14" height="14" rx="3" fill="#3a4048" stroke="currentColor" strokeWidth="1.15" />
+      {/* Visor */}
+      <rect x="41.5" y="11.5" width="9" height="4.5" rx="1.2" fill="#1a1208" stroke="currentColor" strokeWidth="0.7" />
+      <circle cx="44.2" cy="13.7" r="1.35" fill="currentColor" />
+      <circle cx="48.3" cy="13.7" r="1.35" fill="currentColor" />
+      {/* Mouth plate / chin detail */}
+      <path d="M43 18.5h7" stroke="#cfc5b0" strokeWidth="0.9" opacity="0.45" />
+      {/* Antenna */}
+      <path d="M46 8V4.5" stroke="currentColor" strokeWidth="1.1" fill="none" />
+      <circle cx="46" cy="3.6" r="1.35" fill="currentColor" />
+
+      {/* Shoulder bolts */}
+      <circle cx="20.5" cy="8.5" r="1.1" fill="#1a1e24" stroke="currentColor" strokeWidth="0.55" />
+      <circle cx="20.5" cy="22.5" r="1.1" fill="#1a1e24" stroke="currentColor" strokeWidth="0.55" />
     </svg>
   );
 }
