@@ -16,6 +16,9 @@ type HoverTrackerCardProps = {
   accent: Accent;
   icon: LucideIcon;
   code?: string;
+  role?: string;
+  highlights?: readonly string[];
+  stats?: readonly { label: string; value: string }[];
   className?: string;
 };
 
@@ -27,6 +30,9 @@ export function HoverTrackerCard({
   accent,
   icon: Icon,
   code = "MOD",
+  role = "MODULE",
+  highlights = [],
+  stats = [],
   className,
 }: HoverTrackerCardProps) {
   return (
@@ -51,7 +57,34 @@ export function HoverTrackerCard({
               <div className="ht-icon" aria-hidden>
                 <Icon size={18} />
               </div>
-              <span className="ht-code">{code}</span>
+              <div className="ht-top-meta">
+                <span className="ht-code">{code}</span>
+                <span className="ht-role">{role}</span>
+              </div>
+            </div>
+
+            <div className="ht-mid">
+              {stats.length > 0 ? (
+                <div className="ht-stats">
+                  {stats.map((stat) => (
+                    <div key={stat.label} className="ht-stat">
+                      <span className="ht-stat-value">{stat.value}</span>
+                      <span className="ht-stat-label">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              {highlights.length > 0 ? (
+                <ul className="ht-highlights">
+                  {highlights.map((item) => (
+                    <li key={item}>
+                      <span className="ht-bullet" aria-hidden />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
 
             <div className="ht-body">

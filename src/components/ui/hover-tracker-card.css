@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 340px;
   transition: 200ms;
 }
 
@@ -94,6 +94,13 @@
   box-shadow: 0 0 16px var(--ht-glow);
 }
 
+.ht-top-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
 .ht-code {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
@@ -102,11 +109,88 @@
   text-shadow: 0 0 10px var(--ht-glow);
 }
 
-.ht-body {
-  margin-top: auto;
+.ht-role {
+  border: 1px solid rgba(255, 122, 0, 0.45);
+  background: rgba(255, 122, 0, 0.12);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ff9a45;
+}
+
+.ht-mid {
+  margin: 1rem 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.85rem;
+}
+
+.ht-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.ht-stat {
+  border: 1px solid rgba(237, 230, 217, 0.16);
+  background: rgba(6, 6, 8, 0.42);
+  padding: 0.45rem 0.35rem;
+  text-align: center;
+}
+
+.ht-stat-value {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ede6d9;
+  line-height: 1.1;
+}
+
+.ht-stat-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(237, 230, 217, 0.62);
+}
+
+.ht-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ht-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: rgba(237, 230, 217, 0.86);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.ht-bullet {
+  margin-top: 0.35rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  flex-shrink: 0;
+  background: #ff7a00;
+  box-shadow: 0 0 8px rgba(255, 122, 0, 0.65);
+}
+
+.ht-body {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .ht-name {
@@ -385,6 +469,6 @@
 
 @media (max-width: 767px) {
   .ht-container {
-    min-height: 260px;
+    min-height: 300px;
   }
 }
