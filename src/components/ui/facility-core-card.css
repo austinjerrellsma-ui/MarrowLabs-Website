@@ -1,0 +1,371 @@
+/* From Uiverse.io by 3HugaDa3 — BONELAB facility core capability cards */
+.fc-wrapper {
+  --fc-neon: rgb(255 122 0);
+  --fc-neon-soft: rgba(255, 122, 0, 0.18);
+  --fc-neon-mid: rgba(255, 122, 0, 0.45);
+  --fc-grid: rgba(255, 122, 0, 0.12);
+  --fc-glow: rgba(255, 176, 48, 0.35);
+  --fc-glitch-a: #ff7a00;
+  --fc-glitch-b: #ffc078;
+
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  height: 100%;
+  perspective: 900px;
+}
+
+.fc-wrapper[data-accent="ml"] {
+  --fc-neon: rgb(167 139 250);
+  --fc-neon-soft: rgba(167, 139, 250, 0.18);
+  --fc-neon-mid: rgba(167, 139, 250, 0.45);
+  --fc-grid: rgba(167, 139, 250, 0.12);
+  --fc-glow: rgba(139, 92, 246, 0.35);
+  --fc-glitch-a: #c4b5fd;
+  --fc-glitch-b: #8b5cf6;
+}
+
+.fc-wrapper[data-accent="hub"] {
+  --fc-neon: rgb(45 212 230);
+  --fc-neon-soft: rgba(45, 212, 230, 0.18);
+  --fc-neon-mid: rgba(45, 212, 230, 0.45);
+  --fc-grid: rgba(45, 212, 230, 0.12);
+  --fc-glow: rgba(6, 182, 212, 0.35);
+  --fc-glitch-a: #67e8f9;
+  --fc-glitch-b: #0891b2;
+}
+
+.fc-wrapper[data-accent="studio"] {
+  --fc-neon: rgb(251 191 36);
+  --fc-neon-soft: rgba(251, 191, 36, 0.18);
+  --fc-neon-mid: rgba(251, 191, 36, 0.45);
+  --fc-grid: rgba(251, 191, 36, 0.12);
+  --fc-glow: rgba(245, 158, 11, 0.35);
+  --fc-glitch-a: #fde68a;
+  --fc-glitch-b: #f59e0b;
+}
+
+.fc-tracker {
+  position: absolute;
+  width: 33.333%;
+  height: 33.333%;
+  z-index: 10;
+}
+
+.fc-tr-1 {
+  top: 0;
+  left: 0;
+}
+.fc-tr-2 {
+  top: 0;
+  left: 33.333%;
+}
+.fc-tr-3 {
+  top: 0;
+  left: 66.666%;
+}
+.fc-tr-4 {
+  top: 33.333%;
+  left: 0;
+}
+.fc-tr-5 {
+  top: 33.333%;
+  left: 33.333%;
+}
+.fc-tr-6 {
+  top: 33.333%;
+  left: 66.666%;
+}
+.fc-tr-7 {
+  top: 66.666%;
+  left: 0;
+}
+.fc-tr-8 {
+  top: 66.666%;
+  left: 33.333%;
+}
+.fc-tr-9 {
+  top: 66.666%;
+  left: 66.666%;
+}
+
+.fc-card {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.88);
+  border: 1px solid rgba(255, 122, 0, 0.22);
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 0 18px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(237, 230, 217, 0.04);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.fc-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(var(--fc-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--fc-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.55;
+  mask-image: radial-gradient(circle at center, white, transparent 80%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fc-card::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--fc-neon-soft), transparent 50%);
+  top: -50%;
+  left: -50%;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fc-content {
+  z-index: 5;
+  transform: translateZ(36px);
+  text-align: left;
+  pointer-events: none;
+  padding: 1.35rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: var(--font-nasalization), system-ui, sans-serif;
+}
+
+.fc-cap {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fc-neon);
+  text-shadow: 0 0 10px var(--fc-glow);
+  margin-bottom: 0.85rem;
+}
+
+.fc-title {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: #ede6d9;
+  text-shadow: 0 0 12px rgba(237, 230, 217, 0.25);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  position: relative;
+}
+
+.fc-body {
+  margin-top: 0.85rem;
+  color: rgba(237, 230, 217, 0.74);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  flex: 1;
+}
+
+.fc-status {
+  margin-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--fc-neon);
+  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.fc-status-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--fc-neon);
+  box-shadow: 0 0 10px var(--fc-glow);
+}
+
+.fc-glitch {
+  position: relative;
+}
+
+.fc-glitch::before,
+.fc-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* No solid fill — opaque backgrounds draw black bars on wrapped titles */
+  background: transparent;
+  color: inherit;
+  opacity: 0;
+  pointer-events: none;
+  white-space: inherit;
+}
+
+.fc-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--fc-glitch-a);
+  clip-path: inset(40% 0 45% 0);
+}
+
+.fc-glitch::after {
+  left: -2px;
+  text-shadow: 2px 0 var(--fc-glitch-b);
+  clip-path: inset(55% 0 20% 0);
+}
+
+/* Glitch only while this card is hovered */
+.fc-wrapper:hover .fc-glitch::before,
+.fc-wrapper:hover .fc-glitch::after {
+  opacity: 0.9;
+}
+
+.fc-wrapper:hover .fc-glitch::before {
+  animation: fc-glitch-anim 0.85s infinite steps(2, end);
+}
+
+.fc-wrapper:hover .fc-glitch::after {
+  animation: fc-glitch-anim2 0.95s infinite steps(2, end);
+}
+
+.fc-wrapper:hover .fc-title {
+  text-shadow:
+    0 0 12px rgba(237, 230, 217, 0.35),
+    0 0 18px var(--fc-glow);
+}
+
+@keyframes fc-glitch-anim {
+  0% {
+    clip-path: inset(12% 0 70% 0);
+    transform: translate(-2px, 0);
+  }
+  25% {
+    clip-path: inset(48% 0 30% 0);
+    transform: translate(2px, 0);
+  }
+  50% {
+    clip-path: inset(5% 0 78% 0);
+    transform: translate(-1px, 0);
+  }
+  75% {
+    clip-path: inset(62% 0 18% 0);
+    transform: translate(1px, 0);
+  }
+  100% {
+    clip-path: inset(28% 0 55% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes fc-glitch-anim2 {
+  0% {
+    clip-path: inset(70% 0 8% 0);
+    transform: translate(2px, 0);
+  }
+  33% {
+    clip-path: inset(20% 0 55% 0);
+    transform: translate(-2px, 0);
+  }
+  66% {
+    clip-path: inset(58% 0 22% 0);
+    transform: translate(1px, 0);
+  }
+  100% {
+    clip-path: inset(35% 0 40% 0);
+    transform: translate(-1px, 0);
+  }
+}
+
+.fc-tr-1:hover ~ .fc-card {
+  transform: rotateX(16deg) rotateY(-16deg);
+}
+.fc-tr-1:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(-20%, -20%);
+}
+
+.fc-tr-2:hover ~ .fc-card {
+  transform: rotateX(16deg) rotateY(0deg);
+}
+.fc-tr-2:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(0%, -20%);
+}
+
+.fc-tr-3:hover ~ .fc-card {
+  transform: rotateX(16deg) rotateY(16deg);
+}
+.fc-tr-3:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(20%, -20%);
+}
+
+.fc-tr-4:hover ~ .fc-card {
+  transform: rotateX(0deg) rotateY(-16deg);
+}
+.fc-tr-4:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(-20%, 0%);
+}
+
+.fc-tr-5:hover ~ .fc-card {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.03);
+  box-shadow: 0 0 28px var(--fc-neon-mid);
+}
+.fc-tr-5:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(0%, 0%);
+}
+
+.fc-tr-6:hover ~ .fc-card {
+  transform: rotateX(0deg) rotateY(16deg);
+}
+.fc-tr-6:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(20%, 0%);
+}
+
+.fc-tr-7:hover ~ .fc-card {
+  transform: rotateX(-16deg) rotateY(-16deg);
+}
+.fc-tr-7:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(-20%, 20%);
+}
+
+.fc-tr-8:hover ~ .fc-card {
+  transform: rotateX(-16deg) rotateY(0deg);
+}
+.fc-tr-8:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(0%, 20%);
+}
+
+.fc-tr-9:hover ~ .fc-card {
+  transform: rotateX(-16deg) rotateY(20deg);
+}
+.fc-tr-9:hover ~ .fc-card::after {
+  opacity: 1;
+  transform: translate(20%, 20%);
+}
+
+@media (max-width: 640px) {
+  .fc-wrapper {
+    min-height: 260px;
+  }
+}
