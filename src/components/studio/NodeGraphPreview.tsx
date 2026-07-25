@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -8,6 +7,7 @@ import {
   FacilityHeader,
   FacilityPanel,
 } from "@/components/ui/FacilityChrome";
+import { StudioEditorPlayground } from "@/components/studio/StudioEditorPlayground";
 
 export function NodeGraphPreview() {
   return (
@@ -18,7 +18,7 @@ export function NodeGraphPreview() {
         <FacilityHeader
           label={<SectionLabel variant="studio">Inside the editor</SectionLabel>}
           title="Wire. Validate. Compile."
-          description="Marrow Studio’s full node graph — library, canvas, inspector, and build pipeline in one facility console."
+          description="Try the real Marrow Studio graph — pan, zoom, connect nodes, and inspect fields in a live playground pulled straight from the editor."
         />
 
         <motion.div
@@ -36,18 +36,17 @@ export function NodeGraphPreview() {
                 CAM-01 // MARROW STUDIO
               </span>
               <span className="font-mono text-[9px] tracking-[0.16em] text-studio">
-                LIVE GRAPH
+                INTERACTIVE
               </span>
             </div>
             <div className="relative bg-surface">
-              <Image
-                src="/studio-editor.png"
-                alt="Marrow Studio node editor showing a Phase 13 Variable Counter graph with library, canvas, inspector, and build controls"
-                width={1919}
-                height={1079}
-                className="h-auto w-full"
-                sizes="(max-width: 1152px) 100vw, 1152px"
-                priority={false}
+              <StudioEditorPlayground
+                className="h-[560px] w-full sm:h-[640px] lg:h-[720px]"
+                style={{
+                  borderRadius: 0,
+                  border: "none",
+                  minHeight: 0,
+                }}
               />
               <div
                 aria-hidden
