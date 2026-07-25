@@ -7,12 +7,12 @@ interface GradientTextProps {
   as?: "span" | "h1" | "h2" | "h3";
 }
 
-/* Soft near-solid fills — gradient is barely perceptible */
+/* Original color → slightly darker same hue (subtle, never black) */
 const gradients = {
-  ml: "from-bone via-[#e8e0f4] to-bone",
-  hub: "from-bone via-[#dfeef0] to-bone",
-  studio: "from-bone via-[#f0e8d4] to-bone",
-  white: "from-bone via-[#f2ebe0] to-[#e8e0d2]",
+  ml: "from-violet-300 via-violet-400 to-violet-500",
+  hub: "from-cyan-300 via-cyan-400 to-cyan-500",
+  studio: "from-amber-300 via-amber-400 to-amber-500",
+  white: "from-bone via-[#e4dccb] to-[#cfc5b0]",
 };
 
 export function GradientText({
