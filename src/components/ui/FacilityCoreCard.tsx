@@ -45,10 +45,10 @@ export function FacilityCoreCard({
         <div className="fc-corner fc-br" aria-hidden />
 
         <div className="fc-content">
-          <div className="fc-cap fc-glitch" data-text={code}>
-            {code}
-          </div>
-          <h3 className="fc-title">{title}</h3>
+          <div className="fc-cap">{code}</div>
+          <h3 className="fc-title fc-glitch" data-text={title}>
+            {title}
+          </h3>
           <p className="fc-body">{body}</p>
           <div className="fc-status">
             <span className="fc-status-dot" aria-hidden />
