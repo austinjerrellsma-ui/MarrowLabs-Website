@@ -402,8 +402,6 @@
 
 .fc-wrapper:hover .fc-corner {
   box-shadow: 0 0 10px var(--fc-neon);
-  width: 26px;
-  height: 26px;
 }
 
 @media (max-width: 640px) {
