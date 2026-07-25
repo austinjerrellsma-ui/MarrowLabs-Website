@@ -56,7 +56,7 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-border">
       <FacilityBackdrop accent={a.backdrop} />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:px-8 lg:py-20">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:px-8 lg:pb-20">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}

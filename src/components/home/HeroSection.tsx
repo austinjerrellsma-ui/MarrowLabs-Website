@@ -44,7 +44,7 @@ const PIPELINE = [
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[92svh] flex-col justify-center overflow-hidden px-4 pb-10 pt-20 sm:px-6 sm:pt-24">
+    <section className="relative flex min-h-[92svh] flex-col justify-center overflow-hidden px-4 pb-10 pt-28 sm:px-6 sm:pt-32">
       <FacilityBackdrop accent="hazard" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
