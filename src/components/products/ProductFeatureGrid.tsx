@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import {
   FacilityBackdrop,
   FacilityHeader,
-  FacilityPanel,
 } from "@/components/ui/FacilityChrome";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { FacilityCoreCard } from "@/components/ui/FacilityCoreCard";
 import { cn } from "@/lib/utils";
 
 type Feature = {
@@ -32,8 +32,6 @@ export function ProductFeatureGrid({
   description,
   features,
   accent,
-  accentClass,
-  railClass,
   backdropAccent,
   columns = "3",
 }: ProductFeatureGridProps) {
@@ -52,7 +50,7 @@ export function ProductFeatureGrid({
 
         <div
           className={cn(
-            "grid gap-3",
+            "grid gap-4 sm:gap-5",
             columns === "4"
               ? "sm:grid-cols-2 lg:grid-cols-4"
               : "sm:grid-cols-2 lg:grid-cols-3",
@@ -63,31 +61,17 @@ export function ProductFeatureGrid({
               key={feature.title}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="min-h-[300px]"
             >
-              <FacilityPanel
-                className="h-full p-5"
-                accentClassName={railClass}
-              >
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-hazard">
-                    CAP-{String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-hazard shadow-[0_0_8px_rgb(var(--hazard)/0.8)]" />
-                </div>
-                <h3
-                  className={cn(
-                    "font-display text-base font-semibold tracking-tight",
-                    accentClass,
-                  )}
-                >
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {feature.body}
-                </p>
-              </FacilityPanel>
+              <FacilityCoreCard
+                code={`CAP-${String(i + 1).padStart(2, "0")}`}
+                title={feature.title}
+                body={feature.body}
+                status="System Nominal"
+                accent={accent === "hazard" ? "hazard" : accent}
+              />
             </motion.div>
           ))}
         </div>
