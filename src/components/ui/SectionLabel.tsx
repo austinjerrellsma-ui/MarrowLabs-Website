@@ -10,7 +10,8 @@ const variantStyles = {
   ml: "border-ml/40 bg-ml/10 text-ml",
   hub: "border-hub/40 bg-hub/10 text-hub",
   studio: "border-studio/40 bg-studio/10 text-studio",
-  hazard: "border-hazard/50 bg-hazard/10 text-hazard",
+  hazard:
+    "border-hazard/70 bg-hazard/15 text-hazard shadow-[0_0_18px_rgb(var(--hazard)/0.18)]",
   neutral: "border-border bg-surface text-muted-foreground",
 };
 

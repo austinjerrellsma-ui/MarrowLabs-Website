@@ -8,10 +8,10 @@ interface FacilityBackdropProps {
 
 const accentGlow: Record<NonNullable<FacilityBackdropProps["accent"]>, string> =
   {
-    hazard: "rgb(var(--hazard) / 0.16)",
-    ml: "rgb(var(--ml-glow) / 0.16)",
-    hub: "rgb(var(--hub-glow) / 0.16)",
-    studio: "rgb(var(--studio-glow) / 0.16)",
+    hazard: "rgb(var(--hazard) / 0.28)",
+    ml: "rgb(var(--ml-glow) / 0.18)",
+    hub: "rgb(var(--hub-glow) / 0.18)",
+    studio: "rgb(var(--studio-glow) / 0.18)",
   };
 
 /** Shared BONELAB void-facility atmosphere for sections */
@@ -48,8 +48,8 @@ export function FacilityBackdrop({
       />
       {showStripes && (
         <>
-          <div className="absolute top-0 inset-x-0 h-1 hazard-stripe opacity-70" />
-          <div className="absolute bottom-0 inset-x-0 h-1 hazard-stripe opacity-40" />
+          <div className="absolute top-0 inset-x-0 h-1.5 hazard-stripe opacity-95" />
+          <div className="absolute bottom-0 inset-x-0 h-1 hazard-stripe opacity-55" />
         </>
       )}
     </div>
@@ -76,7 +76,10 @@ export function FacilityPanel({
       )}
     >
       <span
-        className={cn("absolute left-0 top-0 h-full w-[3px]", accentClassName)}
+        className={cn(
+          "absolute left-0 top-0 h-full w-[3px] shadow-[0_0_12px_rgb(var(--hazard)/0.35)]",
+          accentClassName,
+        )}
         aria-hidden
       />
       <span className="facility-corner facility-corner-tl" aria-hidden />
@@ -119,7 +122,7 @@ export function FacilityHeader({
       >
         {label}
         <span
-          className="hidden h-px flex-1 max-w-[140px] bg-gradient-to-r from-hazard/50 to-transparent sm:block"
+          className="hidden h-px flex-1 max-w-[160px] bg-gradient-to-r from-hazard via-hazard-glow/60 to-transparent sm:block"
           aria-hidden
         />
       </div>

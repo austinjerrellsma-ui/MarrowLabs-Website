@@ -25,12 +25,13 @@ const DOCK_ITEMS = [
 export function Nav() {
   return (
     <header className="pointer-events-none fixed top-0 inset-x-0 z-50">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-hazard to-transparent opacity-80" aria-hidden />
       <nav className="pointer-events-auto mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className="h-7 w-7 rounded-sm bg-hazard/15 border border-hazard/40 flex items-center justify-center">
-            <div className="h-3 w-3 rounded-[1px] bg-hazard animate-glow-pulse" />
+          <div className="flex h-7 w-7 items-center justify-center rounded-sm border border-hazard/60 bg-hazard/20 shadow-[0_0_16px_rgb(var(--hazard)/0.35)]">
+            <div className="h-3 w-3 animate-glow-pulse rounded-[1px] bg-hazard shadow-[0_0_8px_rgb(var(--hazard-glow)/0.8)]" />
           </div>
-          <span className="font-display font-semibold text-base tracking-tight text-bone group-hover:text-hazard transition-colors hidden sm:inline">
+          <span className="hidden font-display text-base font-semibold tracking-tight text-bone transition-colors group-hover:text-hazard sm:inline">
             MarrowLabs
           </span>
         </Link>
