@@ -6,12 +6,15 @@ import "./bone-terminal.css";
 
 type Tab = "sys" | "mod" | "link";
 
+type Accent = "hazard" | "ml" | "hub" | "studio";
+
 type BoneTerminalProps = {
   title: string;
   meta?: string[];
   integrity?: number;
   platform?: string;
   interfaceLabel?: string;
+  accent?: Accent;
   className?: string;
 };
 
@@ -27,6 +30,7 @@ export function BoneTerminal({
   integrity = 78,
   platform = "BONELAB / Windows",
   interfaceLabel = "Desktop + VR",
+  accent = "hazard",
   className,
 }: BoneTerminalProps) {
   const uid = useId();
@@ -44,6 +48,7 @@ export function BoneTerminal({
   return (
     <div
       className={cn("bone-terminal", className)}
+      data-accent={accent}
       data-active={tab}
       role="region"
       aria-label={`${title} facility terminal`}

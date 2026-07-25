@@ -148,7 +148,12 @@ export function PageHero({
           transition={{ delay: 0.12, duration: 0.55 }}
           className="mx-auto w-full max-w-md lg:max-w-none"
         >
-          <BoneTerminal title={title} meta={meta} integrity={78} />
+          <BoneTerminal
+            title={title}
+            meta={meta}
+            integrity={78}
+            accent={accent === "hazard" ? "hazard" : accent}
+          />
         </motion.div>
       </div>
     </section>
