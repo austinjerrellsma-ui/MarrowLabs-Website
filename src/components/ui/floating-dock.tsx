@@ -89,9 +89,9 @@ const FloatingDockMobile = ({
         onClick={() => setOpen(!open)}
         aria-label="Open product menu"
         aria-expanded={open}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 border border-border"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-hazard/35 bg-neutral-900 shadow-[0_0_16px_rgb(var(--hazard)/0.15)]"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-muted-foreground" />
+        <IconLayoutNavbarCollapse className="h-5 w-5 text-hazard" />
       </button>
     </div>
   );
