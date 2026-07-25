@@ -1,33 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { FloatingDock } from "@/components/ui/floating-dock";
-import { Zap, Monitor, Cpu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { FacilityNavButton } from "@/components/ui/FacilityNavButton";
 
-const DOCK_ITEMS = [
-  {
-    title: "MarrowLink",
-    href: "/marrowlink",
-    icon: <Zap className="h-full w-full text-ml" />,
-  },
-  {
-    title: "MarrowLink Hub",
-    href: "/hub",
-    icon: <Monitor className="h-full w-full text-hub" />,
-  },
-  {
-    title: "Marrow Studio",
-    href: "/studio",
-    icon: <Cpu className="h-full w-full text-studio" />,
-  },
-];
+const SECTIONS = [
+  { href: "/marrowlink", label: "MarrowLink", accent: "ml" as const },
+  { href: "/hub", label: "Hub", accent: "hub" as const },
+  { href: "/studio", label: "Studio", accent: "studio" as const },
+] as const;
 
 export function Nav() {
+  const pathname = usePathname();
+
   return (
     <header className="pointer-events-none fixed top-0 inset-x-0 z-50">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-hazard to-transparent opacity-80" aria-hidden />
-      <nav className="pointer-events-auto mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-hazard to-transparent opacity-80"
+        aria-hidden
+      />
+      <nav className="pointer-events-auto mx-auto flex min-h-16 max-w-7xl items-center gap-3 px-4 py-3 sm:px-6">
+        <Link href="/" className="group flex shrink-0 items-center gap-2.5">
           <div className="flex h-7 w-7 items-center justify-center rounded-sm border border-hazard/60 bg-hazard/20 shadow-[0_0_16px_rgb(var(--hazard)/0.35)]">
             <div className="h-3 w-3 animate-glow-pulse rounded-[1px] bg-hazard shadow-[0_0_8px_rgb(var(--hazard-glow)/0.8)]" />
           </div>
@@ -36,15 +29,21 @@ export function Nav() {
           </span>
         </Link>
 
-        <div className="flex flex-1 items-center justify-end md:justify-center">
-          <FloatingDock items={DOCK_ITEMS} />
+        <div className="flex flex-1 items-center justify-end gap-2 overflow-x-auto sm:justify-center sm:gap-3 md:pr-0">
+          {SECTIONS.map((section) => (
+            <FacilityNavButton
+              key={section.href}
+              href={section.href}
+              accent={section.accent}
+              active={pathname === section.href}
+            >
+              {section.label}
+            </FacilityNavButton>
+          ))}
         </div>
 
-        {/* Balance brand width so the dock stays visually centered on desktop */}
-        <div
-          className="hidden md:block w-[132px] shrink-0"
-          aria-hidden
-        />
+        {/* Balance brand width so section buttons stay visually centered on desktop */}
+        <div className="hidden w-[132px] shrink-0 md:block" aria-hidden />
       </nav>
     </header>
   );
