@@ -9,12 +9,14 @@ import {
 } from "@/components/ui/FacilityChrome";
 import { StudioEditorPlayground } from "@/components/studio/StudioEditorPlayground";
 
+const PLAYGROUND_HEIGHT = 860;
+
 export function NodeGraphPreview() {
   return (
     <section className="relative overflow-hidden border-b border-border py-16 sm:py-20">
       <FacilityBackdrop accent="studio" showStripes={false} />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <FacilityHeader
           label={<SectionLabel variant="studio">Inside the editor</SectionLabel>}
           title="Wire. Validate. Compile."
@@ -31,7 +33,7 @@ export function NodeGraphPreview() {
             className="overflow-hidden p-0"
             accentClassName="bg-studio"
           >
-            <div className="flex items-center justify-between border-b border-border bg-background/60 px-3 py-2 sm:px-4">
+            <div className="flex shrink-0 items-center justify-between border-b border-border bg-background/60 px-3 py-2 sm:px-4">
               <span className="font-mono text-[9px] tracking-[0.18em] text-muted">
                 CAM-01 // MARROW STUDIO
               </span>
@@ -39,13 +41,22 @@ export function NodeGraphPreview() {
                 INTERACTIVE
               </span>
             </div>
-            <div className="relative bg-surface">
+            <div
+              className="relative w-full shrink-0 overflow-hidden bg-surface"
+              style={{
+                height: PLAYGROUND_HEIGHT,
+                minHeight: PLAYGROUND_HEIGHT,
+                maxHeight: PLAYGROUND_HEIGHT,
+              }}
+            >
               <StudioEditorPlayground
-                className="h-[560px] w-full sm:h-[640px] lg:h-[720px]"
+                className="h-full w-full shrink-0"
                 style={{
                   borderRadius: 0,
                   border: "none",
-                  minHeight: 0,
+                  height: PLAYGROUND_HEIGHT,
+                  minHeight: PLAYGROUND_HEIGHT,
+                  maxHeight: PLAYGROUND_HEIGHT,
                 }}
               />
               <div
