@@ -1,0 +1,793 @@
+/* From Uiverse.io by Gidarx — BONELAB CRT, accentable per product */
+.bone-terminal {
+  --pip: rgb(255 122 0);
+  --pip-glow: rgba(255, 176, 48, 0.65);
+  --pip-dim: rgba(255, 122, 0, 0.35);
+  --pip-soft: rgba(255, 122, 0, 0.12);
+  --pip-soft-06: rgba(255, 122, 0, 0.06);
+  --pip-soft-16: rgba(255, 122, 0, 0.16);
+  --pip-soft-14: rgba(255, 122, 0, 0.14);
+  --pip-soft-22: rgba(255, 122, 0, 0.22);
+  --pip-border: #4a3420;
+  --pip-chassis-a: #2a2218;
+  --pip-chassis-b: #1c1610;
+  --pip-screw-a: #6a4a28;
+  --pip-screw-glow: rgba(255, 200, 120, 0.25);
+  --bg-void: #060608;
+  --chassis: #141414;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-nasalization), ui-monospace, monospace;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 650px;
+  padding: 0;
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: bone-terminal;
+}
+
+.bone-terminal[data-accent="ml"] {
+  --pip: rgb(167 139 250);
+  --pip-glow: rgba(196, 181, 253, 0.65);
+  --pip-dim: rgba(167, 139, 250, 0.35);
+  --pip-soft: rgba(167, 139, 250, 0.12);
+  --pip-soft-06: rgba(167, 139, 250, 0.06);
+  --pip-soft-16: rgba(167, 139, 250, 0.16);
+  --pip-soft-14: rgba(167, 139, 250, 0.14);
+  --pip-soft-22: rgba(167, 139, 250, 0.22);
+  --pip-border: #3b2a5c;
+  --pip-chassis-a: #22182e;
+  --pip-chassis-b: #16101c;
+  --pip-screw-a: #5a4a78;
+  --pip-screw-glow: rgba(196, 181, 253, 0.28);
+}
+
+.bone-terminal[data-accent="hub"] {
+  --pip: rgb(45 212 230);
+  --pip-glow: rgba(103, 232, 249, 0.65);
+  --pip-dim: rgba(45, 212, 230, 0.35);
+  --pip-soft: rgba(45, 212, 230, 0.12);
+  --pip-soft-06: rgba(45, 212, 230, 0.06);
+  --pip-soft-16: rgba(45, 212, 230, 0.16);
+  --pip-soft-14: rgba(45, 212, 230, 0.14);
+  --pip-soft-22: rgba(45, 212, 230, 0.22);
+  --pip-border: #1a3f48;
+  --pip-chassis-a: #142428;
+  --pip-chassis-b: #0e181a;
+  --pip-screw-a: #3a6a72;
+  --pip-screw-glow: rgba(103, 232, 249, 0.28);
+}
+
+.bone-terminal[data-accent="studio"] {
+  --pip: rgb(251 191 36);
+  --pip-glow: rgba(253, 230, 138, 0.65);
+  --pip-dim: rgba(251, 191, 36, 0.35);
+  --pip-soft: rgba(251, 191, 36, 0.12);
+  --pip-soft-06: rgba(251, 191, 36, 0.06);
+  --pip-soft-16: rgba(251, 191, 36, 0.16);
+  --pip-soft-14: rgba(251, 191, 36, 0.14);
+  --pip-soft-22: rgba(251, 191, 36, 0.22);
+  --pip-border: #4a3a14;
+  --pip-chassis-a: #2a2210;
+  --pip-chassis-b: #1c160a;
+  --pip-screw-a: #6a5a28;
+  --pip-screw-glow: rgba(253, 230, 138, 0.28);
+}
+
+.bone-terminal ::selection {
+  background-color: var(--pip);
+  color: var(--bg-void);
+  text-shadow: none;
+}
+
+.bone-terminal input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bone-terminal-chassis {
+  position: relative;
+  width: 100%;
+  background-image:
+    radial-gradient(var(--pip-soft-06) 1px, transparent 1px),
+    linear-gradient(135deg, var(--pip-chassis-a), #111111, var(--pip-chassis-b));
+  background-size:
+    3px 3px,
+    100% 100%;
+  padding: 1.75rem;
+  border-radius: 0.35rem;
+  box-shadow:
+    inset 0 0 20px #000,
+    0 18px 36px rgba(0, 0, 0, 0.75),
+    0 0 0 1px var(--pip-dim),
+    0 0 28px var(--pip-soft);
+  border: 2px solid var(--pip-border);
+  box-sizing: border-box;
+}
+
+.bone-terminal-screw {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, var(--pip-screw-a), #1a1208);
+  border-radius: 50%;
+  border: 1px solid #000;
+  box-shadow:
+    inset 1px 1px 2px var(--pip-screw-glow),
+    0 0 6px var(--pip-dim);
+}
+
+.bone-terminal-screw::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 2px;
+  background: #000;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.bone-terminal-screw.tl {
+  top: 12px;
+  left: 12px;
+}
+.bone-terminal-screw.tr {
+  top: 12px;
+  right: 12px;
+  transform: rotate(90deg);
+}
+.bone-terminal-screw.bl {
+  bottom: 12px;
+  left: 12px;
+  transform: rotate(180deg);
+}
+.bone-terminal-screw.br {
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(270deg);
+}
+
+.bone-terminal-crt {
+  background-color: var(--bg-void);
+  border-radius: 0.45rem;
+  position: relative;
+  overflow: hidden;
+  border: 6px solid #0a0806;
+  box-shadow:
+    inset 0 0 50px rgba(0, 0, 0, 1),
+    0 0 0 1px var(--pip-dim),
+    0 0 18px var(--pip-soft);
+  aspect-ratio: 4 / 3;
+  cursor: crosshair;
+}
+
+.bone-terminal-glass {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 200, 120, 0.04) 0%,
+    rgba(0, 0, 0, 0.45) 80%
+  );
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.bone-terminal-glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--pip-soft),
+    transparent
+  );
+  animation: boneCrtScanline 7s linear infinite;
+  pointer-events: none;
+  z-index: 11;
+}
+
+.bone-terminal-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.28) 50%
+  );
+  background-size: 100% 4px;
+}
+
+.bone-terminal-boot {
+  height: 100%;
+  padding: 1.15rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: var(--pip);
+  text-shadow: 0 0 5px var(--pip-glow);
+  animation: boneTurnOnCRT 1.15s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+}
+
+.bone-terminal .bold {
+  font-weight: 700;
+}
+
+.bone-terminal-line {
+  height: 2px;
+  background-color: var(--pip);
+  box-shadow: 0 0 8px var(--pip-glow);
+  opacity: 0.85;
+}
+
+.bone-terminal-line.flexible {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.bone-terminal-top,
+.bone-terminal-bottom {
+  display: flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.bone-terminal-top {
+  margin-bottom: 1rem;
+}
+
+.bone-terminal-title {
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.bone-terminal-stats {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.bone-terminal-bottom {
+  margin-top: auto;
+}
+
+.bone-terminal-nav {
+  padding: 3px 8px;
+  cursor: crosshair;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.bone-terminal-nav:hover {
+  background-color: var(--pip-soft-16);
+}
+
+.bone-terminal-middle {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+}
+
+.bone-terminal-tab {
+  display: none;
+  width: 100%;
+  height: 100%;
+  animation: boneScreenGlitch 0.4s ease-out;
+}
+
+/* Tabs via unique instance IDs set as data attributes on wrapper */
+.bone-terminal[data-active="sys"] .content-sys,
+.bone-terminal[data-active="mod"] .content-mod,
+.bone-terminal[data-active="link"] .content-link {
+  display: flex;
+}
+
+.bone-terminal[data-active="sys"] .bone-terminal-title::before {
+  content: "SYS_STATUS";
+}
+.bone-terminal[data-active="mod"] .bone-terminal-title::before {
+  content: "MODULE_INV";
+}
+.bone-terminal[data-active="link"] .bone-terminal-title::before {
+  content: "DATA_LINK";
+}
+
+.bone-terminal[data-active="sys"] label[data-tab="sys"],
+.bone-terminal[data-active="mod"] label[data-tab="mod"],
+.bone-terminal[data-active="link"] label[data-tab="link"] {
+  background-color: var(--pip);
+  color: var(--bg-void);
+  text-shadow: none;
+  box-shadow: 0 0 12px var(--pip-glow);
+}
+
+.content-sys {
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bone-terminal-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+}
+
+.bone-terminal-active-box {
+  border: 2px solid var(--pip);
+  padding: 2px 7px;
+  box-shadow: inset 0 0 10px var(--pip-glow);
+}
+
+.bone-terminal-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.bone-terminal-block {
+  background-color: var(--pip);
+  border-radius: 4px;
+  padding: 8px 14px;
+  margin-bottom: 6px;
+  box-shadow: 0 0 22px var(--pip-glow);
+  animation: boneBlockPulse 4s infinite alternate;
+}
+
+.bone-terminal-block .readout {
+  color: var(--bg-void);
+  font-size: clamp(1.6rem, 7cqw, 2.75rem);
+  font-weight: 700;
+  text-shadow: none;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.bone-terminal-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: center;
+}
+
+.bone-terminal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bone-terminal-rad {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.bone-terminal-hazard {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  background: conic-gradient(
+    var(--pip) 0deg 60deg,
+    transparent 60deg 120deg,
+    var(--pip) 120deg 180deg,
+    transparent 180deg 240deg,
+    var(--pip) 240deg 300deg,
+    transparent 300deg 360deg
+  );
+  border-radius: 50%;
+  animation: boneRadarSpin 8s linear infinite;
+  box-shadow: 0 0 14px var(--pip-glow);
+}
+
+.bone-terminal-hazard-core {
+  position: absolute;
+  inset: 9px;
+  background: var(--bg-void);
+  border-radius: 50%;
+}
+
+.bone-terminal-hazard-core::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: var(--pip);
+  border-radius: 50%;
+}
+
+.content-mod {
+  flex-direction: column;
+  font-size: 0.78rem;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.bone-terminal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.bone-terminal-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 6px;
+  border-bottom: 1px dashed var(--pip-dim);
+  cursor: crosshair;
+}
+
+.bone-terminal-list li:hover,
+.bone-terminal-list li.active {
+  background-color: var(--pip);
+  color: var(--bg-void);
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: 0 0 10px var(--pip-glow);
+  padding: 6px 10px;
+}
+
+.bone-terminal-list .item-meta {
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.content-link {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bone-terminal-radar {
+  position: relative;
+  width: min(140px, 38cqw);
+  height: min(140px, 38cqw);
+  background: var(--pip-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px var(--pip-glow);
+  border: 2px solid var(--pip);
+}
+
+.bone-terminal-radar::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  background: var(--pip-soft-14);
+  border-radius: 50%;
+  border: 1px dashed var(--pip-dim);
+}
+
+.bone-terminal-radar::after {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: var(--pip-soft-22);
+  border-radius: 50%;
+  border: 1px solid var(--pip);
+}
+
+.bone-terminal-radar > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: boneAngularRotation 2s linear infinite;
+  box-shadow: 6px -100px 40px -30px var(--pip);
+  border-top: 2px solid var(--pip);
+  z-index: 2;
+}
+
+.bone-terminal-blip {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  top: 28%;
+  left: 62%;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 18px var(--pip);
+  animation: boneBlipFade 2s infinite;
+  z-index: 3;
+}
+
+.bone-terminal-radar-text {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+}
+
+.bone-terminal-eq {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 14px;
+  margin-left: 8px;
+}
+
+.bone-terminal-eq .bar {
+  width: 3px;
+  background-color: var(--pip);
+  animation: boneEqBounce 1s infinite alternate;
+}
+
+.bone-terminal-eq .bar-1 {
+  animation-delay: 0.1s;
+}
+.bone-terminal-eq .bar-2 {
+  animation-delay: 0.3s;
+}
+.bone-terminal-eq .bar-3 {
+  animation-delay: 0s;
+}
+.bone-terminal-eq .bar-4 {
+  animation-delay: 0.4s;
+}
+
+.bone-terminal-dossier {
+  width: 100%;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.bone-terminal-dossier-row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.5rem;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--pip-dim);
+}
+
+.bone-terminal-dossier-row dt {
+  opacity: 0.75;
+}
+
+.bone-terminal-dossier-row dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+@keyframes boneScreenGlitch {
+  0% {
+    opacity: 0;
+    filter: contrast(200%);
+    transform: translateY(-2px);
+    text-shadow:
+      3px 0 rgba(255, 60, 0, 0.7),
+      -3px 0 rgba(255, 200, 80, 0.5);
+  }
+  20% {
+    opacity: 0.8;
+    text-shadow:
+      -3px 0 rgba(255, 60, 0, 0.7),
+      3px 0 rgba(255, 200, 80, 0.5);
+  }
+  50% {
+    opacity: 0.55;
+    filter: contrast(150%) hue-rotate(8deg);
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: contrast(100%);
+    transform: translateY(0);
+    text-shadow: 0 0 5px var(--pip-glow);
+  }
+}
+
+@keyframes boneCrtScanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(800%);
+  }
+}
+
+@keyframes boneTurnOnCRT {
+  0% {
+    transform: scale(1, 0.005);
+    opacity: 0;
+    filter: brightness(10);
+  }
+  30% {
+    transform: scale(1, 0.005);
+    opacity: 1;
+    filter: brightness(5);
+  }
+  60% {
+    transform: scale(1, 1);
+    filter: brightness(2);
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+@keyframes boneAngularRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes boneRadarSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes boneBlipFade {
+  0%,
+  85% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boneEqBounce {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 14px;
+  }
+}
+
+@keyframes boneBlockPulse {
+  0% {
+    box-shadow: 0 0 14px var(--pip-glow);
+  }
+  100% {
+    box-shadow: 0 0 32px var(--pip-glow);
+  }
+}
+
+@keyframes boneBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes boneFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+@keyframes bonePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.bone-terminal-blink {
+  animation: boneBlink 1s step-end infinite;
+}
+
+.bone-terminal-flicker {
+  animation: boneFlicker 0.15s infinite;
+}
+
+.bone-terminal-flicker-fast {
+  animation: boneFlicker 0.08s infinite;
+}
+
+.bone-terminal-pulse {
+  animation: bonePulse 1.5s infinite ease-in-out;
+}
+
+@container bone-terminal (max-width: 520px) {
+  .bone-terminal-chassis {
+    padding: 1.15rem;
+  }
+  .bone-terminal-crt {
+    border-width: 4px;
+  }
+  .bone-terminal-boot {
+    padding: 0.85rem;
+  }
+  .bone-terminal-block .readout {
+    font-size: 1.7rem;
+  }
+  .bone-terminal-top,
+  .bone-terminal-bottom {
+    font-size: 0.62rem;
+  }
+  .bone-terminal-side,
+  .bone-terminal-list,
+  .bone-terminal-dossier {
+    font-size: 0.65rem;
+  }
+  .bone-terminal-hazard {
+    width: 34px;
+    height: 34px;
+  }
+  .bone-terminal-hazard-core {
+    inset: 7px;
+  }
+  .bone-terminal-hazard-core::after {
+    inset: 4px;
+  }
+}
+
+@container bone-terminal (max-width: 380px) {
+  .bone-terminal-chassis {
+    padding: 0.85rem;
+  }
+  .bone-terminal-boot {
+    padding: 0.65rem;
+  }
+  .bone-terminal-block {
+    padding: 4px 8px;
+  }
+  .bone-terminal-block .readout {
+    font-size: 1.25rem;
+  }
+  .bone-terminal-date {
+    font-size: 0.58rem;
+  }
+  .bone-terminal-top {
+    margin-bottom: 0.65rem;
+  }
+  .bone-terminal-stats {
+    gap: 5px;
+  }
+  .bone-terminal-nav {
+    padding: 2px 4px;
+  }
+  .bone-terminal-dossier-row {
+    grid-template-columns: 5rem 1fr;
+  }
+}

@@ -1,0 +1,24 @@
+/* Remap facility chrome tokens so shared "hazard" UI follows the product accent. */
+.product-theme[data-accent="ml"] {
+  --hazard: var(--ml-primary);
+  --hazard-glow: var(--ml-glow);
+  --hazard-deep: 91 33 182;
+  --primary: var(--ml-primary);
+  --ring: var(--ml-primary);
+}
+
+.product-theme[data-accent="hub"] {
+  --hazard: var(--hub-primary);
+  --hazard-glow: var(--hub-glow);
+  --hazard-deep: 8 145 178;
+  --primary: var(--hub-primary);
+  --ring: var(--hub-primary);
+}
+
+.product-theme[data-accent="studio"] {
+  --hazard: var(--studio-primary);
+  --hazard-glow: var(--studio-glow);
+  --hazard-deep: 180 83 9;
+  --primary: var(--studio-primary);
+  --ring: var(--studio-primary);
+}

@@ -1,0 +1,159 @@
+/* Top facility bar — accent follows current section */
+.facility-topbar {
+  --bar: rgb(255 122 0);
+  --bar-rgb: 255 122 0;
+  --bar-glow: rgb(255 176 48);
+  --bar-glow-rgb: 255 176 48;
+  --bar-hover: #ffc078;
+  --bar-active-hover: #ff9a3c;
+  --bar-soft: rgba(255, 122, 0, 0.12);
+  --bar-mid: rgba(255, 122, 0, 0.38);
+  --bar-edge: rgba(255, 122, 0, 0.3);
+  --bar-panel: rgba(255, 122, 0, 0.25);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.facility-topbar[data-accent="ml"] {
+  --bar: rgb(167 139 250);
+  --bar-rgb: 167 139 250;
+  --bar-glow: rgb(196 181 253);
+  --bar-glow-rgb: 196 181 253;
+  --bar-hover: #d4c4ff;
+  --bar-active-hover: #c4b5fd;
+  --bar-soft: rgba(167, 139, 250, 0.12);
+  --bar-mid: rgba(167, 139, 250, 0.38);
+  --bar-edge: rgba(167, 139, 250, 0.35);
+  --bar-panel: rgba(167, 139, 250, 0.28);
+}
+
+.facility-topbar[data-accent="hub"] {
+  --bar: rgb(45 212 230);
+  --bar-rgb: 45 212 230;
+  --bar-glow: rgb(103 232 249);
+  --bar-glow-rgb: 103 232 249;
+  --bar-hover: #9aeff8;
+  --bar-active-hover: #67e8f9;
+  --bar-soft: rgba(45, 212, 230, 0.12);
+  --bar-mid: rgba(45, 212, 230, 0.38);
+  --bar-edge: rgba(45, 212, 230, 0.35);
+  --bar-panel: rgba(45, 212, 230, 0.28);
+}
+
+.facility-topbar[data-accent="studio"] {
+  --bar: rgb(251 191 36);
+  --bar-rgb: 251 191 36;
+  --bar-glow: rgb(253 230 138);
+  --bar-glow-rgb: 253 230 138;
+  --bar-hover: #ffe08a;
+  --bar-active-hover: #fcd34d;
+  --bar-soft: rgba(251, 191, 36, 0.12);
+  --bar-mid: rgba(251, 191, 36, 0.38);
+  --bar-edge: rgba(251, 191, 36, 0.35);
+  --bar-panel: rgba(251, 191, 36, 0.28);
+}
+
+.facility-topbar-shell {
+  border-bottom: 1px solid var(--bar-edge);
+  background: rgb(10 10 12 / 0.92);
+  box-shadow:
+    0 12px 40px rgb(0 0 0 / 0.55),
+    0 0 24px rgb(var(--bar-rgb) / 0.08);
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.facility-topbar-brand-mark {
+  border-color: rgb(var(--bar-rgb) / 0.7) !important;
+  background: rgb(var(--bar-rgb) / 0.15) !important;
+  box-shadow: 0 0 14px rgb(var(--bar-rgb) / 0.3) !important;
+}
+
+.facility-topbar-brand-core {
+  background: var(--bar) !important;
+  box-shadow: 0 0 8px rgb(var(--bar-glow-rgb) / 0.85) !important;
+}
+
+.facility-topbar-brand-name:hover,
+.facility-topbar-brand:hover .facility-topbar-brand-name {
+  color: var(--bar);
+}
+
+.facility-topbar-divider {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--bar-rgb) / 0.6),
+    transparent
+  );
+}
+
+.facility-topbar-bay {
+  border-color: var(--bar-panel) !important;
+}
+
+.facility-topbar-bay .facility-corner-tl,
+.facility-topbar-bay .facility-corner-tr {
+  border-color: rgb(var(--bar-rgb) / 1) !important;
+}
+
+.facility-topbar-bay .facility-corner-bl,
+.facility-topbar-bay .facility-corner-br {
+  border-color: rgb(var(--bar-rgb) / 0.75) !important;
+}
+
+.facility-topbar-rail {
+  background: var(--bar) !important;
+  box-shadow: 0 0 10px rgb(var(--bar-rgb) / 0.45) !important;
+}
+
+.facility-topbar-status {
+  border-color: var(--bar-edge) !important;
+  background: var(--bar-soft) !important;
+  color: var(--bar) !important;
+}
+
+.facility-topbar-status-dot {
+  background: var(--bar) !important;
+  box-shadow: 0 0 8px rgb(var(--bar-rgb) / 0.9) !important;
+}
+
+/* Buttons inherit the active section accent from the top bar */
+.facility-topbar .facility-nav-btn {
+  --nav-accent: var(--bar);
+  --nav-accent-soft: var(--bar-soft);
+  --nav-accent-mid: var(--bar-mid);
+  --nav-accent-glow: rgb(var(--bar-glow-rgb) / 0.16);
+  --nav-hover: var(--bar-hover);
+}
+
+.facility-topbar .facility-nav-btn:hover,
+.facility-topbar .facility-nav-btn:focus-visible {
+  box-shadow:
+    inset 0 0 10px rgb(var(--bar-rgb) / 0.55),
+    0 0 12px 3px rgb(var(--bar-glow-rgb) / 0.28);
+}
+
+.facility-topbar .facility-nav-btn::before {
+  background: linear-gradient(
+    to right,
+    transparent 1%,
+    rgb(var(--bar-rgb) / 0.16) 40%,
+    rgb(var(--bar-glow-rgb) / 0.16) 60%,
+    transparent 100%
+  );
+}
+
+.facility-topbar .facility-nav-btn[data-active="true"] {
+  box-shadow:
+    inset 0 0 12px rgb(var(--bar-glow-rgb) / 0.4),
+    0 0 14px 3px rgb(var(--bar-rgb) / 0.32);
+}
+
+.facility-topbar .facility-nav-btn[data-active="true"]:hover,
+.facility-topbar .facility-nav-btn[data-active="true"]:focus-visible {
+  background: var(--bar-active-hover);
+}

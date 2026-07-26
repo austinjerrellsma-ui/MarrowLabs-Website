@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { FacilityConveyorBackground } from "@/components/ui/FacilityConveyorBackground";
 
 const nasalization = localFont({
   src: "../fonts/Nasalization-Rg.woff2",
@@ -49,9 +50,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nasalization.variable} dark scroll-smooth`}>
-      <body className={`${nasalization.className} relative min-h-screen flex flex-col`}>
+      <body
+        className={`${nasalization.className} relative flex min-h-screen flex-col`}
+      >
+        <FacilityConveyorBackground />
         <Nav />
-        <main className="flex-1 relative z-10">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

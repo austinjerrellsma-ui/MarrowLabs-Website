@@ -12,7 +12,7 @@ const gradients = {
   ml: "from-violet-300 via-violet-400 to-violet-500",
   hub: "from-cyan-300 via-cyan-400 to-cyan-500",
   studio: "from-amber-300 via-amber-400 to-amber-500",
-  white: "from-bone via-[#e4dccb] to-[#cfc5b0]",
+  white: "from-bone via-[#f0d8b8] to-[#ff9a45]",
 };
 
 export function GradientText({

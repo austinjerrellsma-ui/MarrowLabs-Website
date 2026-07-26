@@ -23,7 +23,7 @@ export function AboutContent() {
     <>
       <section className="relative overflow-hidden border-b border-border">
         <FacilityBackdrop accent="hazard" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
